@@ -1,0 +1,121 @@
+.page2{
+  
+    flex: 5;
+
+}
+
+.title2{
+width: 100%;
+height: 85px;
+background-color: rgba(192, 38, 38, 1);
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 24.5439px;
+line-height: 36px;
+display: flex;
+align-items: center;
+justify-content: center;
+letter-spacing: -0.747888px;
+
+color: #FFFFFF;
+}
+
+.divs{
+    height: 75vh;
+    background: #F8F7FF;
+border-radius: 16.0513px 16.0513px 0px 0px;
+
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 16.0513px;
+line-height: 18px;
+
+color: #0D062D;
+text-align: center;
+margin-top: 15%;
+overflow-y: auto;
+overflow-x: hidden;
+}
+
+.icon{
+    margin-right: 2%;
+    width: 8px;
+}
+
+.hr1{
+ 
+    border: 1.5px solid #0B1963;
+    color:#0B1963;
+opacity: 1;
+}
+.hr2{
+ 
+    border: 1.5px solid #FFA500;
+    color:#FFA500;
+opacity: 1;
+}
+.hr3{
+ 
+    border: 1.5px solid #8BC48A;
+color:#8BC48A;
+opacity: 1;
+}
+
+.circle {
+    background: #E3E8FF;
+    width: 25px; 
+    height: 25px;
+    border-radius: 50%;
+   
+    align-items: center; 
+    justify-content: center;
+    display: inline-flex;
+    color: #0B1963;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 12.0385px;
+line-height: 14px;
+  }
+  .circle2 {
+    background: #FFEFD0;
+    width: 25px; 
+    height: 25px;
+    border-radius: 50%;
+   
+    align-items: center; 
+    justify-content: center;
+    display: inline-flex;
+    color: #FFA500;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 12.0385px;
+line-height: 14px;
+  }
+  .circle3 {
+    background: #DFFFEB;
+    width: 25px; 
+    height: 25px;
+    border-radius: 50%;
+   
+    align-items: center; 
+    justify-content: center;
+    display: inline-flex;
+    color:#8BC48A;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 12.0385px;
+line-height: 14px;
+  }
+
+ .top{
+position: sticky;
+top: 0;
+background-color: #F8F7FF;
+padding: 1rem 1rem 0.1rem 1rem;
+ }
+

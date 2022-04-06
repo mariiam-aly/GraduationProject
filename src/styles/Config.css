@@ -1,0 +1,279 @@
+.page6{
+  
+    flex: 5;
+
+}
+.contitle{
+    width: 100%;
+    height: 160px;
+    background-color: #081249;;
+        font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24.5439px;
+    line-height: 36px;
+    display: flex;
+    justify-content: center;
+    letter-spacing: -0.747888px;
+    
+    color: #FFFFFF;
+    }
+    .contitle2{
+        margin-top: 2%;
+    }
+    .compProfile{
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        border: 5px solid #E9DFFF;
+        float: left;
+    }
+    .compName{
+        font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 24.5707px;
+line-height: 36px;
+display: flex;
+align-items: center;
+letter-spacing: -0.748707px;
+margin-bottom: 0;
+color: #240666;
+margin-top: 80px;
+display: inline-block;
+    }
+.compType{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+display: flex;
+align-items: center;
+letter-spacing: -0.748707px;
+
+color: #B8B8B8;
+}
+.details{
+    display: flex;
+    align-items: center;
+        position: relative;
+        top:-90px;
+        margin-left: 40px;
+}
+.edit{
+    background: #ABB8FF;
+border-radius: 3px;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 140%;
+color: #FFFFFF;
+border: none;
+padding: 5px 20px;
+margin-left: 10px;
+}
+
+.generalInfo{
+margin-left: 40px;
+border-style: none none solid none;
+border-color: #0B1963;
+border-width: 3px;
+width: 200px;
+position: relative;
+bottom:50px;
+}
+
+.genText{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 14.7641px;
+line-height: 26px;
+/* identical to box height, or 175% */
+
+letter-spacing: -0.02em;
+
+color: #0B1963; 
+display: inline;
+}
+
+.compInfo{
+
+margin: auto 10px auto 10px;
+
+}
+.infoTitle{
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 14px;
+color: #959595;
+}
+.infoTitle2{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    
+    color: #0B1961;
+    }
+    table{
+        text-align: center;
+    
+    }
+    th, td {
+        border-bottom: 1px solid  #F4F4F4 !important;
+      }
+      td{
+          padding-top: 30px;
+          padding-bottom: 10px;
+      }
+.control{
+    border: 1px solid #F4F4F4;
+    box-shadow: 0px 0.56878px 0.56878px rgba(171, 171, 171, 0.25);
+    border-radius: 7.13755px;
+    padding: 10px 5px;
+}
+.borderDecor{
+    border-style:solid none none none;
+    border-color: #A9D3AB;
+border-radius: 2.05px;
+border-width: 5px;
+padding-top: 10px;
+}
+
+.dep{
+    border-color: #A4ABCF;;
+}
+.tit{
+    border-color: #D69A9A;
+}
+.shft{
+    border-color: #C4B8DF;
+}
+.number{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 39px;
+letter-spacing: -0.393704px;
+color: #004E04;
+margin-bottom: 0;
+}
+.blue{
+    color: #00041C;
+}
+.red{
+    color: #750000;
+}
+.lilac{
+    color: #060014;
+}
+.category{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 32px;
+color: #58AA5C;
+margin-bottom: 0;
+}
+.bl{
+    color: #0B1963;
+}
+.re{
+    color: #CF2121;
+}
+.lil{
+    color: #220C53;
+}
+
+.arrow{
+float:right;
+margin-top: 10px;
+}
+
+.view{
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15.0902px;
+    line-height: 140%;
+    color: #58AA5C;
+    background: #EDF6EE;
+border-radius: 3.23361px;
+border: none;
+padding: 10px 30px;
+}
+.view:hover{
+    background: #d9e0d9;  
+}
+.viewb{
+    background: #F0F3FF;
+    color: #0B1963;
+}
+.viewb:hover{
+    background: #d4d7e2;
+  
+}
+.viewr{
+    color: #CF2121;
+    background: #FFDEDE;
+}
+.viewr:hover{
+    
+    background: #e4c5c5;
+}
+.viewl{
+    background: #EBE1FF;
+    color: #220C53;
+}
+.viewl:hover{
+    background: #d1c8e4;
+ 
+}
+.add{
+    background: #58AA5C;
+    border-radius: 3.23361px;
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15.0902px;
+    line-height: 140%;
+    color: #FFFFFF;    
+    border: none;
+    padding: 10px 30px;
+}
+.add:hover{
+    background: #4f9953; 
+}
+.addb{
+    background: #0B1963;
+}
+.addb:hover{
+    background: #0a1653;
+}
+.addr{
+    background: #CF2121;
+}
+.addr:hover{
+    background: #ad1c1c;
+}
+.addl{
+    background: #220C53;
+}
+.addl:hover{
+    background: #1e0a49;
+}
+
+.buttons{
+margin-top: 10px;
+display: flex;
+justify-content: space-between;
+
+}

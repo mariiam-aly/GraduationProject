@@ -1,0 +1,152 @@
+.page1{
+  
+    flex: 5;
+
+    
+}
+.list{
+    height: 75%;
+     width: 96%;
+   
+margin: 0 2% 0 2%;
+
+}
+
+.user{
+    font-family: Ubuntu;
+font-style: normal;
+font-weight: bold;
+font-size: 36px;
+line-height: 41px;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+
+color: #0B1963;
+margin-top: 2%;
+margin-bottom: 0;
+}
+hr{
+    border: 0.1px solid #C6C2DE;
+  }
+  
+  .page11{
+    margin: 0 2% 0 2%;
+  }
+
+  .dropbtn {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10.9535px;
+    line-height: 16px;
+    /* identical to box height, or 143% */
+    
+    letter-spacing: 0.02em;
+    
+    /* Gray/700 */
+    
+    color: #464F60;
+padding: 8px 20px;    
+width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0px 0.782396px 0.782396px rgba(0, 0, 0, 0.1), 0px 0px 0px 0.782396px rgba(70, 79, 96, 0.16);
+    border-radius: 4.69437px;
+    border:none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 200;
+    cursor: pointer;
+    
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: #0B1963;
+    color: white;
+  }
+
+ .addUser{
+ padding: 15px 25px;
+border:none;
+background:  #E6EAFF;
+border-radius: 5.23095px;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 16px;
+/* identical to box height */
+
+text-transform: capitalize;
+
+color: #0B1962;
+
+cursor: pointer;
+ 
+ 
+ }
+
+ .addUser:hover{
+  background:  #c5c9db;
+ }
+
+ .action{
+   border: none;
+  margin-right: 8%;
+   background-color: transparent;
+   font-size: 22px;
+ }
+.action:hover .actionIcon1{
+  color: #63c261;
+}
+.action:hover .actionIcon2{
+  color: #BA2323;
+}
+.action:hover .actionIcon3{
+  color: #FFA500;
+}
+.tooltiptext {
+  background:  #0B1962;
+  visibility: hidden;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  color: #E6EAFF;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 5px;
+
+  /* Position the tooltip */
+  position: absolute;
+
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.action:hover .tooltiptext{
+  visibility: visible;
+}

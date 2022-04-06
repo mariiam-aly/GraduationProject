@@ -1,0 +1,136 @@
+.modalBackground2 {
+    
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(200, 200, 200, 0.5);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  
+  }
+  .cardTitleM{
+    background: linear-gradient(256.88deg, #D73434 24.97%, #820000 159.02%);
+border-radius: 4.575px;
+padding: 10px 0;
+
+width: 40%;
+min-width: 188px;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 15.6995px;
+line-height: 23px;
+/* or 146% */
+
+display: flex;
+    align-items: center;
+padding-left: 2%;
+letter-spacing: -0.478386px;
+
+color: #FFFFFF;
+
+}
+  
+  .modalContainer2 {
+    width: 500px;
+    height: 500px;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+ 
+    padding: 0px 25px;
+  }
+  
+  .modalContainer2 .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .titleCloseBtn {
+    display: flex;
+    justify-content: flex-end;
+    
+  }
+  .cls2{
+    background-color:#FFD7D7;
+    border: none;
+    display: flex;
+    justify-content: center;
+    padding: 5px 5px;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 25px;
+    position: relative;
+    bottom: 1rem;
+    left: 3%;
+  }
+  .cls2:hover{
+    background-color:#fcc0c0;
+  }
+
+  
+  .modalContainer2 .body {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7rem;
+    text-align: center;
+  }
+  
+  .modalContainer2 .footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modalContainer2 .footer button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .modalContainer2 .footer button:hover{
+    background-color: rgb(95, 138, 216);
+  }
+  
+  #cancelBtn {
+    background-color: crimson;
+  }
+  #cancelBtn:hover {
+    background-color: rgb(201, 26, 61);
+  }
+  .general{
+    font-family: 'Ubuntu';
+   
+    font-style: normal;
+    font-weight: 700;
+    font-size: 27.0754px;
+    line-height: 31px;
+    
+    color: #C52929;
+    margin: 3% 2% 1% auto;
+
+    display: inline-block;}
+  .missionState{
+display: inline-block;
+
+  }
+  .det{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    color: #111111;
+    
+  }

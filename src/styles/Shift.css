@@ -1,0 +1,188 @@
+.page6{
+  
+    flex: 5;
+
+}
+.contitle{
+    width: 100%;
+    height: 160px;
+    background-color: #081249;;
+        font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24.5439px;
+    line-height: 36px;
+    display: flex;
+    justify-content: center;
+    letter-spacing: -0.747888px;
+    
+    color: #FFFFFF;
+    }
+    .contitle2{
+        margin-top: 2%;
+    }
+    .compProfile{
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        border: 5px solid #E9DFFF;
+        float: left;
+    }
+    .compName{
+        font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 24.5707px;
+line-height: 36px;
+display: flex;
+align-items: center;
+letter-spacing: -0.748707px;
+margin-bottom: 0;
+color: #240666;
+margin-top: 80px;
+display: inline-block;
+    }
+.compType{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+display: flex;
+align-items: center;
+letter-spacing: -0.748707px;
+
+color: #B8B8B8;
+}
+
+.shift{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 26px;
+letter-spacing: -0.02em;
+color: #9A9A9A;
+display: inline-block;
+margin-left: 30px;
+}
+
+.shiftB{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 26px;
+letter-spacing: -0.02em;
+display: inline-block;
+color: #000000;
+
+}
+.addShift{
+    background: rgba(34, 12, 83, 0.12);
+border-radius: 6.36455px;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: bold;
+font-size: 11.3027px;
+line-height: 130%;
+color: #220C53;
+border: none;
+padding: 8px 15px;
+display: block;
+margin-left: 30px;
+}
+.addShift:hover{
+    background: rgba(34, 12, 83, 0.2);   
+}
+.line{
+    border-style: none solid none none;
+  
+    border-color: #C8C8C8;
+    border-width: 1px;
+}
+.pad{
+    padding: 0 45px !important;
+    margin-bottom: 50px;
+}
+.time{
+    display: flex;
+    justify-content: space-between;
+}
+.timeT{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 17.4545px;
+line-height: 20px;
+color: #000000;
+
+}
+.biEdit{
+    background: rgba(11, 25, 99, 0.12);
+    border: none;
+    padding: 0 8px 4px 8px;
+    border-radius: 50%;
+    font-size: 22px;
+text-align: center;
+}
+.biEdit:hover{
+    background: rgba(11, 25, 99, 0.2);
+}
+
+.bRed{
+    background-color:rgba(212, 53, 0, 0.12);
+}
+
+.bRed:hover{
+    background-color:rgba(212, 53, 0, 0.2);
+}
+.biText{
+    display: block; 
+
+    position: absolute;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 11.5247px;
+line-height: 29px;
+
+letter-spacing: -0.02em;
+color: #0B1963;
+margin-left: 7px;
+}
+.biText2{
+    display: block; 
+  
+    position: relative;
+    left: 30px;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 11.5247px;
+line-height: 29px;
+text-align: center;
+letter-spacing: -0.02em;
+
+color: #D43500;
+}
+.cent{
+    text-align: center;
+}
+.clock{
+    width: 100%;
+height: 33.91px;
+background: #DFDFDF;
+border-radius: 6.45396px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.day{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 12.1739px;
+line-height: 140%;
+color: #220C53;
+
+}

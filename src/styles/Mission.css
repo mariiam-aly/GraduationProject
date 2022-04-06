@@ -1,0 +1,84 @@
+.mission{
+    background-color: #FFFFFF;
+  height: 100%;
+    text-align: left;
+ 
+    box-shadow: 0px 3.56878px 3.56878px rgba(171, 171, 171, 0.25);
+
+}
+.arrange{
+  
+  align-items: center;
+  padding: 0.5rem !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+  .profile{
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    float: left;
+ 
+  }
+  .name{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 14.3174px;
+line-height: 15px;
+/* or 104% */
+
+letter-spacing: -0.309751px;
+
+color: #111111;
+margin-top: 8%;
+display: inline-block;
+margin-bottom: 0.5rem;
+  }
+  .date{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 10.1653px;
+line-height: 8px;
+/* identical to box height, or 76% */
+
+letter-spacing: -0.161384px;
+
+color: #515151;
+
+  }
+
+  
+
+  .data{
+    display: flex;
+align-items: center;
+
+  }
+
+  .show{
+    
+  width: 100%;
+ padding: 10px 0;
+  border:none;
+  background:  #F4F7FE;;
+  font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 10.2712px;
+line-height: 15px;
+letter-spacing: -0.309751px;
+
+color: #081878;
+  
+  cursor: pointer;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+  display: block;
+  }
+  .show:hover{
+    background:  rgb(224, 226, 233);
+  }
