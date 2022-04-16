@@ -2,28 +2,20 @@ import"../styles/Config.css"
 
 import logo from "../assets/Titlelogo.svg"
 import { MdSecurity} from "react-icons/md";
-import React, {useEffect,useState } from 'react'
-import { listData } from '../Utils/api'
+import React from 'react'
+
 import arrow from "../assets/Arrow.svg"
 import arrowb from "../assets/Arrowb.svg"
 import arrowr from "../assets/Arrowr.svg"
 import arrowl from "../assets/Arrowl.svg"
+import {Link} from "react-router-dom"
 function Config(){
-  const [tmp,setTmp]= useState([]);
-  useEffect(async() => {
-    await listData().then(response => {
-      const test=response.data.data;
-   
-     setTmp(test);
-     console.log(test);
-   
-    });
-  },[])
+
 
 return(        <div className="page6">
-<div className="contitle"><div className="contitle2"> <img src={logo} />&nbsp;Company Configurations</div></div>
+<div className="contitle"><div className="contitle2"> <img alt="logo" src={logo} />&nbsp;Company Configurations</div></div>
 <div className="details">
-<img className="compProfile" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"/>
+<img alt="profile" className="compProfile" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"/>
 <div style={{marginLeft:"20px"}}>
 <p className="compName">AevaPay Company</p> <button className="edit">Edit</button>
 <p className="compType">Financial Services</p></div></div>
@@ -53,29 +45,29 @@ return(        <div className="page6">
 </div>
 <div style={{marginTop:'50px', marginBottom:"50px"}} className="container">
   <div className="row gy-5">
-    <div className="col-lg-3 col-md-4">
-      <div className=" control"><div className="borderDecor"><div></div><img className="arrow"  src={arrow}/><p className="number ">250</p> <p className="category ">Employees</p></div></div>
+    <div className="col-xl-3 col-lg-4 col-md-6">
+      <div className=" control"><div className="borderDecor"><div></div><img alt="" className="arrow"  src={arrow}/><p className="number ">250</p> <p className="category ">Employees</p></div></div>
  <div className="buttons">
       <button className="view">View</button>
- <a href="adduser"> <button className="add">Add Employee</button></a> </div>
+ <Link to="/adduser"> <button className="add">Add Employee</button></Link> </div>
       </div>
-    <div className="col-lg-3 col-md-4">
-    <div className=" control"><div className="borderDecor dep"><div></div><img className="arrow"  src={arrowb}/><p className="number blue">25</p> <p className="category bl">Departments</p></div></div>
+    <div className="col-xl-3 col-lg-4 col-md-6">
+    <div className=" control"><div className="borderDecor dep2"><div></div><img alt="" className="arrow"  src={arrowb}/><p className="number blue">25</p> <p className="category bl">Departments</p></div></div>
     <div className="buttons">
          <button className="view viewb">View</button>
-      <button className="add addb">Add Department</button></div>
+         <Link to="/department"> <button className="add addb">Add Department</button></Link></div>
     </div>
-    <div className="col-lg-3 col-md-4">
-    <div className=" control"><div className="borderDecor tit"><div></div><img className="arrow"  src={arrowr}/><p className="number red">50</p> <p className="category re">Job Titles</p></div></div>
+    <div className="col-xl-3 col-lg-4 col-md-6">
+    <div className=" control"><div className="borderDecor tit"><div></div><img alt="" className="arrow"  src={arrowr}/><p className="number red">50</p> <p className="category re">Job Titles</p></div></div>
     <div className="buttons">
          <button className="view viewr">View</button>
-      <button className="add addr">Add Title</button></div>
+         <Link to="/jobtitle">  <button className="add addr">Add Title</button></Link></div>
     </div>
-    <div className="col-lg-3 col-md-4">
-    <div className=" control"><div className="borderDecor shft"><div></div><img className="arrow"  src={arrowl}/><p className="number lilac">7</p> <p className="category lil">Shifts</p></div></div>
+    <div className="col-xl-3 col-lg-4 col-md-6">
+    <div className=" control"><div className="borderDecor shft"><div></div><img alt="" className="arrow"  src={arrowl}/><p className="number lilac">7</p> <p className="category lil">Shifts</p></div></div>
     <div className="buttons">
          <button className="view viewl">View</button>
-         <a href="shift">   <button className="add addl">Add Shift</button></a></div>
+         <Link to="/shift">   <button className="add addl">Add Shift</button></Link></div>
     </div>
   </div>
 </div>

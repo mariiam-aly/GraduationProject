@@ -11,8 +11,8 @@ function MissionDetails(props) {
    
 const [firstName,setFirstName]= useState();
 const [lastName,setLastName]= useState();
-    useEffect(async() => {
-        await AxiosProvider.get(`/users/${props.id}`).then(response => {
+    useEffect(() => {
+        AxiosProvider.get(`/users/${props.id}`).then(response => {
           const toBeEdited=response.data.data.first_name;
           const toBeEdited2=response.data.data.last_name;
           setFirstName(toBeEdited);
@@ -20,7 +20,7 @@ const [lastName,setLastName]= useState();
    
        
         });
-      },[])
+      },[props.id])
 
       async function handleSubmit(event) {
         props.setOpenModal(false);
@@ -42,7 +42,7 @@ const [lastName,setLastName]= useState();
           </div>
           <div className="cardTitleM">
                       
-          <img src={mlogo} style={{minHeight:"30px"}} />&nbsp;Mission Requests</div>
+          <img alt="logo" src={mlogo} style={{minHeight:"30px"}} />&nbsp;Mission Requests</div>
 <p className="general">General Meeting</p><div className="missionState"> <Pending/></div>
 <p className="det">Wednesday, March 9st - @Cairo - @Maged Moustafa.</p>
           <form onSubmit={handleSubmit}>

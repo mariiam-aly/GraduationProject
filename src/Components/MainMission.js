@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "../styles/Mission.css"
 
 function MainMission(props) {
@@ -16,7 +16,7 @@ return(
     <div className=" mission">
     <div className="arrange">
     <div className="data">
-    <img  className="profile" src={props.image}/>&nbsp;
+    <img alt="profile pic" className="profile" src={props.image}/>&nbsp;
    
     <div>
     <p className="name">{props.fName} {" "}{props.lName} </p>

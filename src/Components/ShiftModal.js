@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import "../styles/ShiftModal.css"
-
 import { GoX } from "react-icons/go";
-import mlogo from "../assets/miniLogo.svg"
+
 
 function ShiftModal(props) {
 

@@ -1,8 +1,6 @@
 import React from "react";
 import "../styles/Approve.css"
-import Done from "../Components/State/Done.js"
-import Pending from "../Components/State/Pending.js"
-import InProgress from "../Components/State/InProgress.js"
+
 import { FaCheck } from "react-icons/fa";
 import { GoX } from "react-icons/go";
 function Approve(props) {
@@ -12,7 +10,7 @@ return(
     <div className=" mission">
     <div className="arrange">
     <div className="data">
-    <img className="profile" src={props.image}/>&nbsp;
+    <img className="profile" alt=" " src={props.image}/>&nbsp;
    
     <div>
     <p className="name">{props.fName} {" "}{props.lName} </p>

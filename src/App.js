@@ -17,6 +17,7 @@ import AddUser from "./Pages/AddUser"
 import Config from "./Pages/Config"
 import Shift from "./Pages/Shift"
 import Department from "./Pages/Department"
+import JobTitle from "./Pages/JobTitle"
 function App() {
     
 return(
@@ -32,9 +33,10 @@ pages
 <Router>
 <Switch>
 <Route exact path="/" component={Login} />
-       <div>
+
        <div className="container1">
           <Nav/>
+          
           <AuthRoute exact path="/page" component={Page}/>
           <AuthRoute exact path="/page2" component={Page2}/>
           <AuthRoute exact path="/page3" component={Page3}/>
@@ -43,10 +45,11 @@ pages
           <AuthRoute exact path="/config" component={Config}/>
           <AuthRoute exact path="/shift" component={Shift}/>
           <AuthRoute exact path="/department" component={Department}/>
-          </div>
+          <AuthRoute exact path="/jobtitle" component={JobTitle}/>
           </div>
           </Switch>
         </Router>
+        
         </AuthProvider>
 
 );

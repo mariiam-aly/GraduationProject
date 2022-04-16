@@ -1,10 +1,8 @@
 import"../styles/Department.css"
-
 import logo from "../assets/Titlelogo.svg"
-
 import React, {useState } from 'react'
 import { AiOutlineDelete,AiOutlineSearch } from "react-icons/ai";
-import Dep from "../Components/Dep";
+import JobT from "../Components/JobT";
 function Department(){
   const[addNew,setAddNew]= useState(false);
   const [newName,setNewName]= useState("");
@@ -23,16 +21,16 @@ return(        <div className="page6">
 <p className="compName">AevaPay Company</p> <button className="edit">Edit</button>
 <p className="compType">Financial Services</p></div></div>
 <div>
-<p className="shift">Company Configurations 	&gt; General Informations 	&gt; </p>&nbsp;<p className="shiftB">Departments</p>
+<p className="shift">Company Configurations 	&gt; General Informations 	&gt; </p>&nbsp;<p className="shiftB">Job Titles</p>
 <div className="end">
-<button onClick={() => setAddNew(true)} className="addDep">Add new Department</button>
+<button onClick={() => setAddNew(true)} className="addDep">Add new job title</button>
 <div style={{position:"relative"}}>
 <AiOutlineSearch className="srchI"/>
-<input className="search" type="text" placeholder="Search Department"/></div>
+<input className="search" type="text" placeholder="Search Title"/></div>
 </div>
 </div>
 <div className="delDiv">
-<p className="count">{checkCount} Departments Selected</p>
+<p className="count">{checkCount} Titles Selected</p>
 <div>
 <button  className="biEdit bRed delAll"><AiOutlineDelete style={{color:"#D43500"}}/></button>&nbsp;
 <p className="delP">Delete All</p></div>
@@ -58,17 +56,17 @@ return(        <div className="page6">
 </div>
 </div> </div>  
 
-<Dep name="Sales Department" setCheck={setCheck}/>
-<Dep name="Sales Department" setCheck={setCheck}/>
-<Dep name="Sales Department" setCheck={setCheck}/>
-<Dep name="Sales Department" setCheck={setCheck}/>
-<Dep name="Sales Department" setCheck={setCheck}/> </div> :  
+<JobT name="Sales Representive" setCheck={setCheck}/>
+<JobT name="Sales Representive" setCheck={setCheck}/>
+<JobT name="Sales Representive" setCheck={setCheck}/>
+<JobT name="Sales Representive" setCheck={setCheck}/>
+<JobT name="Sales Representive" setCheck={setCheck}/> </div> :  
 <div className="row g-2">
- <Dep name="Sales Department" setCheck={setCheck}/>
- <Dep name="Sales Department" setCheck={setCheck}/>
- <Dep name="Sales Department" setCheck={setCheck}/>
- <Dep name="Sales Department" setCheck={setCheck}/>
- <Dep name="Sales Department" setCheck={setCheck}/>
+ <JobT name="Sales Representive" setCheck={setCheck}/>
+ <JobT name="Sales Representive" setCheck={setCheck}/>
+ <JobT name="Sales Representive" setCheck={setCheck}/>
+ <JobT name="Sales Representive" setCheck={setCheck}/>
+ <JobT name="Sales Representive" setCheck={setCheck}/>
  </div>
 }
  </div>

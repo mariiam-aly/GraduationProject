@@ -2,13 +2,13 @@ import "../styles/Page1.css"
 import axios from 'axios';
 import React, {useState,useEffect} from "react";
 import { DataGrid } from '@mui/x-data-grid';
-import { Button } from "@mui/material";
+
 import { listData } from '../Utils/api'
 import Modal from "../Components/EditModal";
 import { AiOutlineDown, AiOutlineDelete } from "react-icons/ai";
 import {  BsExclamationTriangle } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
-
+import {Link} from "react-router-dom"
 
 function Page(){
   const [modalOpen, setModalOpen] = useState(false);
@@ -42,13 +42,12 @@ function Page(){
 
 
 const [tmp,setTmp]= useState([]);
-const [tmp1,setTmp1]= useState([{id:1,email:"george.bluth@reqres.in",first_name:"George",last_name:"Bluth",avatar:"https://reqres.in/img/faces/1-image.jpg"},{id:2,email:"janet.weaver@reqres.in",first_name:"Janet",last_name:"Weaver",avatar:"https://reqres.in/img/faces/2-image.jpg"},{id:3,email:"emma.wong@reqres.in",first_name:"Emma",last_name:"Wong",avatar:"https://reqres.in/img/faces/3-image.jpg"}]);
 const [editId,setEditId]= useState("");
 
 const [ids,setIds]= useState([]);
 
-useEffect(async() => {
-  await listData().then(response => {
+useEffect(() => {
+   listData().then(response => {
     const test=response.data.data;
  
    setTmp(test);
@@ -69,7 +68,7 @@ const onEdit= (id,rData)=>{
 
 const handleDelete= async()=>{
 
-  {/* axios.delete(`https://reqres.in/api/users`, {
+  /* axios.delete(`https://reqres.in/api/users`, {
     headers: {
       'Content-type': 'application/json'
     },
@@ -78,7 +77,7 @@ const handleDelete= async()=>{
     }
   }).then(response => {
     console.log(response);
-  });*/}
+  });*/
 
   await axios.delete(`https://reqres.in/api/users/2`)
   .then(response => {
@@ -103,14 +102,14 @@ const rows = tmp;
     <p className="user">users</p>
     <div className="d-flex">
    
-    <a href="adduser"> <button className="addUser" >Add New User</button></a>
+    <Link to="/adduser"> <button className="addUser" >Add New User</button></Link>
   </div>
   </div>
     <div className="dropdown">
   <button className="dropbtn">Actions &nbsp; <AiOutlineDown/> </button>
   <div className="dropdown-content">
-  <a onClick={handleDelete}>Delete</a>
-  <a  onClick={handleDelete}>Deactivate</a>
+  <a href=" " onClick={handleDelete}>Delete</a>
+  <a href=" "  onClick={handleDelete}>Deactivate</a>
   
   </div>
 </div>

@@ -8,7 +8,7 @@ return(
     <div className=" request">
     <div className="arrange2">
     <div className="data">
-    <img  className="rprofile" src={props.image}/>
+    <img alt="profile" className="rprofile" src={props.image}/>
    
     <div>
     <p className="name">{props.fName} {" "} {props.lName}</p>

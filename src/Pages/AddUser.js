@@ -2,14 +2,14 @@ import"../styles/AddUser.css"
 
 import logo from "../assets/Titlelogo.svg"
 
-import React, { useRef, useContext,useEffect,useState } from 'react'
+import React, {useEffect,useState } from 'react'
 import { listData } from '../Utils/api'
 import { BsSun,BsMoonStars } from "react-icons/bs";
 
 function AddUser(){
   const [tmp,setTmp]= useState([]);
-  useEffect(async() => {
-    await listData().then(response => {
+  useEffect(() => {
+     listData().then(response => {
       const test=response.data.data;
    
      setTmp(test);
@@ -19,7 +19,7 @@ function AddUser(){
   },[])
 
 return(        <div className="page5">
-<div className="title"> <img src={logo} />&nbsp;Add New Employee</div>
+<div className="title"> <img alt="logo" src={logo} />&nbsp;Add New Employee</div>
 
 <div className="container space">
 <form>
@@ -43,17 +43,22 @@ return(        <div className="page5">
   )}
   
   </select>
+  <div className=" rel">
+<button className="formAdd">Add new Department</button></div>
   </div>
    
-    <div className="col-6">
+    <div className="col-6 ">
     <label className='lbl' htmlFor="no">Job Title</label>
     <select id="cars" name="cars">
     {tmp && tmp.map(data =>
       <option key={data.id} value={data.first_name}>{data.first_name}</option>
   )}
-  </select></div>
+  </select>
+  <div className=" rel">
+  <button className="formAdd">Add new Title</button></div>
+  </div>
   
-    <div className="col-6">
+    <div style={{marginTop:"20px"}} className="col-6 ">
     <label className='lbl' htmlFor="no">Supervisor</label>
     <select id="cars" name="cars">
     {tmp && tmp.map(data =>
@@ -61,7 +66,7 @@ return(        <div className="page5">
   )}
   </select></div>
 
-    <div className="col-6">
+    <div style={{marginTop:"20px"}} className="col-6">
     <label className='lbl' htmlFor="no">Permission</label>
     <select id="cars" name="cars">
     {tmp && tmp.map(data =>
@@ -101,7 +106,7 @@ return(        <div className="page5">
    
     <div className="col-6 ">
     <div className="rad ">
-    <input  type="radio" id="shift1" name="shift"  checked="checked"/>
+    <input  type="radio" id="shift1" name="shift"  />
     <label className='lblR' htmlFor="shift1"><BsMoonStars/>&nbsp;10AM - 4PM</label></div>
     </div>
     <div className="col-6 ">
@@ -117,7 +122,7 @@ return(        <div className="page5">
 </div>
 
 <div className=" overflow-hidden">
-  <div className="row g-2">
+  <div  style={{marginTop:"19px"}} className="row g-2">
     <div className="col-6">
     <label className='lbl' htmlFor="bsalary">Basic Salary</label>
     <input className='inpuserS' type="text" name="bsalary" placeholder="EGP 1,500"/>

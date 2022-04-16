@@ -27,13 +27,13 @@ return(
       
      <div>
      <div className="row ">
-       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Friday"): null}  className={editMode?"clock point": "clock"}>time</div><p className="day">Friday</p></div>
-       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Saturday"): null}  className={editMode?"clock point": "clock"}>time</div><p className="day">Saturday</p></div>
-       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Sunday"): null}  className={editMode?"clock point": "clock"}>time</div><p className="day">Sunday</p></div>
-       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Monday"): null}  className={editMode?"clock point": "clock"}>time</div><p className="day">Monday</p></div>
-       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Tuesday"): null}  className={editMode?"clock point": "clock"}>time</div><p className="day">Tuesday</p></div>
-       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Wednesday"): null}  className={editMode?"clock point": "clock"}>time</div><p className="day">Wednesday</p></div>
-       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Thursday"): null}  className={editMode?"clock point": "clock"}>time</div><p className="day">Thursday</p></div>
+       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Friday"): null}  className={editMode?"clock point clockH": "clock"}>time</div><p className="day">Friday</p></div>
+       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Saturday"): null}  className={editMode?"clock point clockH": "clock"}>time</div><p className="day">Saturday</p></div>
+       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Sunday"): null}  className={editMode?"clock point clockH": "clock"}>time</div><p className="day">Sunday</p></div>
+       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Monday"): null}  className={editMode?"clock point clockH": "clock"}>time</div><p className="day">Monday</p></div>
+       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Tuesday"): null}  className={editMode?"clock point clockH": "clock"}>time</div><p className="day">Tuesday</p></div>
+       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Wednesday"): null}  className={editMode?"clock point clockH": "clock"}>time</div><p className="day">Wednesday</p></div>
+       <div className="col-4 cent"><div onClick={editMode?() => handleOpen("Thursday"): null}  className={editMode?"clock point clockH": "clock"}>time</div><p className="day">Thursday</p></div>
 
     
    </div></div>

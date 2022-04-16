@@ -11,18 +11,16 @@ function Modal(props) {
 const [firstName,setFirstName]= useState();
 const [lastName,setLastName]= useState();
 const [email,setEmail]= useState();
-    useEffect(async() => {
-        await AxiosProvider.get(`/users/${props.id}`).then(response => {
+    useEffect(() => {
+        AxiosProvider.get(`/users/${props.id}`).then(response => {
           const toBeEdited=response.data.data.first_name;
           const toBeEdited2=response.data.data.last_name;
           const toBeEdited3=response.data.data.email;
           setFirstName(toBeEdited);
           setLastName(toBeEdited2);
-          setEmail(toBeEdited3);
-   
-       
+          setEmail(toBeEdited3);  
         });
-      },[])
+      },[props.id])
 
       async function handleSubmit(event) {
         props.setOpenModal(false);
@@ -57,7 +55,7 @@ const [email,setEmail]= useState();
           </div>
           <div className="cardTitleM">
                       
-          <img src={mlogo} style={{minHeight:"30px"}} />&nbsp;Mission Requests</div>
+          <img alt="logo" src={mlogo} style={{minHeight:"30px"}} />&nbsp;Mission Requests</div>
           <form onSubmit={handleSubmit}>
           <div className="body">
          

@@ -13,9 +13,9 @@ const [modalOpen, setModalOpen] = useState(false);
 return(        <div className="page6">
 {modalOpen && <ShiftModal day={day} setOpenModal={setModalOpen} />}
 
-<div className="contitle"><div className="contitle2"> <img src={logo} />&nbsp;Company Configurations</div></div>
+<div className="contitle"><div className="contitle2"> <img alt="logo" src={logo} />&nbsp;Company Configurations</div></div>
 <div className="details">
-<img className="compProfile" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"/>
+<img alt="profile" className="compProfile" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"/>
 <div style={{marginLeft:"20px"}}>
 <p className="compName">AevaPay Company</p> <button className="edit">Edit</button>
 <p className="compType">Financial Services</p></div></div>
@@ -32,6 +32,6 @@ return(        <div className="page6">
 </div>
 </div>);
 
-}
+} 
 
 export default Shift;

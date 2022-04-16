@@ -77,7 +77,7 @@ display: inline-block;
 color: #000000;
 
 }
-.addShift{
+.addDep{
     background: rgba(34, 12, 83, 0.12);
 border-radius: 6.36455px;
 font-family: 'Ubuntu';
@@ -88,11 +88,42 @@ line-height: 130%;
 color: #220C53;
 border: none;
 padding: 8px 15px;
-display: block;
+display: inline-block;
 margin-left: 30px;
 }
-.addShift:hover{
+
+.addDep:hover{
     background: rgba(34, 12, 83, 0.2);   
+}
+.end{
+    display: flex;
+    justify-content: space-between;
+   
+}
+.search{
+    margin-right: 30px;
+    background: #F4F2FF;
+border-radius: 5.89761px;
+border: none;
+padding: 10px;
+padding-left: 25px;
+width: 50%;
+min-width: 250px;
+}
+.search::placeholder{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 11.7952px;
+    line-height: 14px;
+    color: #0B1963;
+
+}
+.srchI{
+    color: #0B1963;
+    position: absolute; 
+    bottom: 11px;
+    left:5px;
 }
 
 .count{
@@ -104,6 +135,26 @@ line-height: 19px;
 color: #999999;
 margin-left: 30px;
 margin-top: 10px;
+display: inline-block;
+}
+.delAll{
+    margin-left: 7px;
+  
+}
+.delDiv{
+display: flex;
+margin-top: 10px;
+}
+.delP{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 12.251px;
+line-height: 29px;
+letter-spacing: -0.02em;
+
+color: #D43500;
+display: inline-block;
 }
 .spc{
     padding: 0.5rem !important;
@@ -170,4 +221,40 @@ text-align: center;
 letter-spacing: -0.02em;
 
 color: #D43500;
+}
+.nameEdit{
+background: transparent;
+border-style: none none solid none;
+border-width: 1px;
+border-color:#D0D0D0 ;
+}
+.nameEdit::placeholder{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 17.5258px;
+line-height: 20px;
+color: #0B1963;
+margin-bottom: 0;
+}
+.nameEdit:focus, input:focus{
+    outline: none;
+}
+
+.update{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 17px;
+border: none;
+color: #58AA5C;
+background: rgba(88, 170, 92, 0.12);
+border-radius: 58px;
+text-align: center;
+padding: 7px 15px;
+margin-bottom: 0;
+}
+.update:hover{
+    background: rgba(88, 170, 92, 0.2);
 }

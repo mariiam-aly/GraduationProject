@@ -177,6 +177,10 @@ display: flex;
 align-items: center;
 justify-content: center;
 }
+
+.clockH:hover{
+    background: #c9c8c8;
+}
 .day{
     font-family: 'Ubuntu';
 font-style: normal;

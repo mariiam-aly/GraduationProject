@@ -145,7 +145,7 @@ border-width: 5px;
 padding-top: 10px;
 }
 
-.dep{
+.dep2{
     border-color: #A4ABCF;;
 }
 .tit{
@@ -202,7 +202,7 @@ margin-top: 10px;
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: 400;
-    font-size: 15.0902px;
+    font-size: 80%;
     line-height: 140%;
     color: #58AA5C;
     background: #EDF6EE;
@@ -243,11 +243,11 @@ padding: 10px 30px;
     font-family: 'Ubuntu';
     font-style: normal;
     font-weight: 400;
-    font-size: 15.0902px;
-    line-height: 140%;
+    font-size: 80%;
+
     color: #FFFFFF;    
     border: none;
-    padding: 10px 30px;
+    padding: 10px 10px;
 }
 .add:hover{
     background: #4f9953; 

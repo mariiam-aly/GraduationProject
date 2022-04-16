@@ -10,8 +10,8 @@ function Page2() {
     const [missionId,setMissionId]= useState("");
     const [modalOpen, setModalOpen] = useState(false);
     const [tmp,setTmp]= useState([]);
-    useEffect(async() => {
-        await listData().then(response => {
+    useEffect(() => {
+       listData().then(response => {
           const test=response.data.data;
        
          setTmp(test);
@@ -25,7 +25,7 @@ function Page2() {
 
         {modalOpen && <MissionDetails setOpenModal={setModalOpen} id={missionId}/>}
 
-            <div className="title2"> <img src={logo} />&nbsp;Mission Expenses Tracking</div>
+            <div className="title2"> <img alt="logo" src={logo} />&nbsp;Mission Expenses Tracking</div>
             <div className="container px-4" >
                 <div className="row  gy-5">
                     <div className="col-xl-4 col-lg-6 ">
