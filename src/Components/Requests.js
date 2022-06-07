@@ -11,9 +11,9 @@ return(
     <img alt="profile" className="rprofile" src={props.image}/>
    
     <div>
-    <p className="name">{props.fName} {" "} {props.lName}</p>
+    <p className="name">{props.name}</p>
   
-    <p className="date">Jan 12,2022.</p></div></div>
+    <p className="date">{props.date}</p></div></div>
   
     
     </div>

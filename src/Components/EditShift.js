@@ -1,12 +1,14 @@
-import React, {useState,useContext} from "react";
+import React, {useState,useContext,useEffect} from "react";
 import "../styles/ShiftModal.css"
 import { GoX } from "react-icons/go";
 import { AuthContext } from '../Context/auth';
-import { Add_shifts } from '../Utils/api2';
-function ShiftModal(props) {
+import { shifts,Edit_shifts } from '../Utils/api2';
+function EditShift(props) {
 
 const [check,setCheck]=useState(true);
 const { user } = useContext(AuthContext);
+const [shift,setShift]=useState();
+const [shiftID,setShiftId]=useState();
        const [values, setValues] = useState({
         name: "",
         start_time:"",
@@ -21,15 +23,31 @@ const { user } = useContext(AuthContext);
         end_time:"false",
       
       });
+      useEffect(() => {
+        shifts(user.token).then(response => {
+          setShift(response.data.data[props.id-1]);
+         console.log(response.data.data);
+      
+         setValues({
+     
+            name: response.data.data[props.id-1].name,
+            start_time: response.data.data[props.id-1].start_time,
+            midday: response.data.data[props.id-1].midday,
+            end_time:response.data.data[props.id-1].end_time,
+
+         })
+        });
+       
+      },[]) 
  
       const handleSubmit = (e) => {
         e.preventDefault();
         console.log(values);
         console.log(focus);
-        Add_shifts(values,user.token).then(response => {
+        Edit_shifts(props.id,values,user.token).then(response => {
     
           console.log(response);
-          props.setOpenModal(false);
+          props.setEditModalOpen(false);
         });
    
        
@@ -49,7 +67,7 @@ const { user } = useContext(AuthContext);
           <div className="titleCloseBtn">
             <button className="cls2"
             onClick={() => {
-               props.setOpenModal(false);
+               props.setEditModalOpen(false);
               
               }}
             >
@@ -81,7 +99,7 @@ const { user } = useContext(AuthContext);
            </div>
           <div  className="footer">
             <button className="shiftBtn" type="submit" >
-              Add new shift
+              Confirm Edit
             </button>
            
           </div>
@@ -91,4 +109,4 @@ const { user } = useContext(AuthContext);
     );
   }
   
-  export default ShiftModal;
+  export default EditShift;

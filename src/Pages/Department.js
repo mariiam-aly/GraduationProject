@@ -1,18 +1,59 @@
 import"../styles/Department.css"
-
+import React, {useState,useEffect,useContext} from "react";
+import { AuthContext } from '../Context/auth';
+import { departments,delete_departments,Departments_Edit,Departments_Create } from '../Utils/api2';
 import logo from "../assets/Titlelogo.svg"
-
-import React, {useState } from 'react'
 import { AiOutlineDelete,AiOutlineSearch } from "react-icons/ai";
 import Dep from "../Components/Dep";
+
 function Department(){
   const[addNew,setAddNew]= useState(false);
+  const[depart,setDepart]= useState(false);
   const [newName,setNewName]= useState("");
   const[checkCount,setCheckCount]= useState(0);
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    departments(user.token).then(response => {
+      const test=response.data.data;
+      setDepart(test);
+     console.log(response);
+   
+    });
+   
+  },[addNew])
+  function handleDelete(id){
+    delete_departments(id,user.token).then(response => {
+      const test=response.data.data;
+   
+     console.log(response);
+   
+    });
   
+  }
+
 function setCheck(no){
   setCheckCount(checkCount+no);
 }
+
+function Create_dep(){
+  console.log("click");
+  Departments_Create(newName,user.token).then(response => {
+  
+   console.log(response);
+   setNewName("");
+   setAddNew(false);
+
+  });
+}
+
+function handleEdit(id,name){
+  Departments_Edit(id,name,user.token).then(response => {
+    const test=response.data.data;
+ 
+   console.log(response);
+   
+  });}
   
 return(        <div className="page6">
 
@@ -20,7 +61,7 @@ return(        <div className="page6">
 <div className="details">
 <img alt="profile" className="compProfile" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"/>
 <div style={{marginLeft:"20px"}}>
-<p className="compName">AevaPay Company</p> <button className="edit">Edit</button>
+<p className="compName">AevaPay Company</p> 
 <p className="compType">Financial Services</p></div></div>
 <div>
 <p className="shift">Company Configurations 	&gt; General Informations 	&gt; </p>&nbsp;<p className="shiftB">Departments</p>
@@ -48,7 +89,8 @@ return(        <div className="page6">
 </div>   
 <div> 
 
-<button className="update">Add</button>
+<button onClick={Create_dep} className="update">Add</button>
+<button onClick={()=>setAddNew(false)} className="cancel">Cancel</button>
 
 </div>
 
@@ -57,18 +99,12 @@ return(        <div className="page6">
 <hr className="hr"/>
 </div>
 </div> </div>  
-
-<Dep name="Sales Department" setCheck={setCheck}/>
-<Dep name="Sales Department" setCheck={setCheck}/>
-<Dep name="Sales Department" setCheck={setCheck}/>
-<Dep name="Sales Department" setCheck={setCheck}/>
-<Dep name="Sales Department" setCheck={setCheck}/> </div> :  
+{depart && depart.map((data,index) =>
+  <Dep handleDel={handleDelete} edit={handleEdit}  index={index} key={data.id} name={data.name} setCheck={setCheck} id={data.id}/>)}
+ </div> :  
 <div className="row g-2">
- <Dep name="Sales Department" setCheck={setCheck}/>
- <Dep name="Sales Department" setCheck={setCheck}/>
- <Dep name="Sales Department" setCheck={setCheck}/>
- <Dep name="Sales Department" setCheck={setCheck}/>
- <Dep name="Sales Department" setCheck={setCheck}/>
+{depart && depart.map((data,index) =>
+  <Dep handleDel={handleDelete} edit={handleEdit}  index={index} name={data.name} setCheck={setCheck}  id={data.id}/>)}
  </div>
 }
  </div>

@@ -1,11 +1,16 @@
-import React from "react";
+import React,{useContext} from "react";
 import "../styles/Navbar.css"
 import logo from"../assets/Navlogo.svg"
-
+import { NavLink } from "react-router-dom";
 import { MdSecurity,MdOutlineAccountBalanceWallet,MdSettings } from "react-icons/md";
 import { RiLogoutBoxLine } from "react-icons/ri";
-
+import { AuthContext } from '../Context/auth';
 function Nav(){
+  const context = useContext(AuthContext);
+  function handleLogout(){
+    context.logout();
+
+  }
 
     return( <div className="sidebar">
    
@@ -15,46 +20,52 @@ function Nav(){
         <h3 className="sidebarTitle">Managements</h3>
         <ul className="sidebarList">
       
-          <li className="sidebarListItem active">
+         <NavLink to="/page" activeClassName="sidebarListItemActive"> <li className="sidebarListItem active">
          <MdSecurity className="navIcon"/>
-            All Requests
-          </li>
+            Home
+          </li></NavLink>
         
-          <li className="sidebarListItem">
+          <NavLink to="/page3" activeClassName="sidebarListItemActive">   <li className="sidebarListItem">
           <MdOutlineAccountBalanceWallet className="navIcon"/>
-            Payroll
-          </li>
-          <li className="sidebarListItem">
+          All Requests
+          </li></NavLink>
+          <NavLink to="/page4" activeClassName="sidebarListItemActive">  <li className="sidebarListItem">
           <MdSettings className="navIcon"/>
-            Company Settings
-          </li>
+            Requests to approve
+          </li></NavLink>
+          <NavLink to="/attendance" activeClassName="sidebarListItemActive">  <li className="sidebarListItem">
+          <MdSettings className="navIcon"/>
+          Attendace sheet
+          </li></NavLink>
         </ul>
       </div>
 
 
-      <div className="sidebarMenu" style={{marginTop:"30%"}}>
-      <h3 className="sidebarTitle">Policies</h3>
+      <div className="sidebarMenu" style={{marginTop:"1.5em"}}>
+      <h3 className="sidebarTitle">Settings</h3>
       <ul className="sidebarList">
     
-        <li className="sidebarListItem active">
+      <NavLink to="/salary" activeClassName="sidebarListItemActive"> <li className="sidebarListItem ">
        <MdSecurity className="navIcon"/>
-          All Requests
-        </li>
+       Salary settings
+        </li></NavLink> 
       
+        <NavLink to="/salary" activeClassName="sidebarListItemActive"> 
         <li className="sidebarListItem">
         <MdOutlineAccountBalanceWallet className="navIcon"/>
-          Payroll
-        </li>
+        Vacations
+        </li></NavLink>
+        <NavLink to="/config" activeClassName="sidebarListItemActive"> 
         <li className="sidebarListItem">
-        <MdSettings className="navIcon"/>
-          Company Settings
-        </li>
+        <MdOutlineAccountBalanceWallet className="navIcon"/>
+        Company Settings
+        </li></NavLink>
       </ul>
     </div>
 
       </div>
-     <a href="/"> <button className="logOutBtn"><RiLogoutBoxLine className="navIcon"/> Log Out</button>
-     </a> </div>)
+   <button onClick={handleLogout} className="logOutBtn"><RiLogoutBoxLine className="navIcon"/> Log Out</button>
+     </div>)
 }
 
 export default Nav;

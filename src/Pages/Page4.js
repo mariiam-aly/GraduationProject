@@ -1,22 +1,61 @@
-import React, {useState,useEffect} from "react";
-import { listData } from '../Utils/api'
+import React, {useState,useEffect,useContext} from "react";
+import { mission2,cancel,approve } from '../Utils/api2';
+import { AuthContext } from '../Context/auth';
 import "../styles/Page4.css"
 import logo from "../assets/Titlelogo.svg"
 import mlogo from "../assets/miniLogo.svg"
 import Approve from "../Components/Approve.js"
 
 function Page4() {
-
-    const [tmp,setTmp]= useState([]);
+    const { user } = useContext(AuthContext);
+    const [missn,setMissn]= useState([]);
+    const [vcn,setVcn]= useState([]);
+    const [wfh,setWfh]= useState([]);
+    
     useEffect(() => {
-        listData().then(response => {
-          const test=response.data.data;
+        console.log(user.token);
+        console.log(localStorage.getItem("token"));
+        mission2({status: 'pending',class: 'mission'},user.token).then(response => {
+          const test=response.data.data.data;
        
-         setTmp(test);
-         console.log(test);
-       
-        });
+          setMissn(test);     
+       console.log(response);
+        });   
+        mission2({status: 'pending',class: 'vacation'},user.token).then(response => {
+            const test=response.data.data.data;
+         
+            setVcn(test);     
+         
+          });  
+          mission2({status: 'pending',class: 'wfh'},user.token).then(response => {
+            const test=response.data.data.data;
+         
+            setWfh(test);     
+         
+          });  
+      
+          
       },[])
+
+
+function handleCancel(id){
+ 
+    cancel(id,   localStorage.getItem("token")).then(response => {
+      console.log(response);  
+     
+      });  
+  
+
+}
+function handleApprove(id){
+    approve(id,user.token).then(response => {
+      console.log(response);  
+     
+      });  
+  
+
+}
+
     return (
 
         <div className="page3">
@@ -32,12 +71,12 @@ function Page4() {
                        <img alt="logo"  src={mlogo} style={{minHeight:"30px"}} />&nbsp;Mission Requests</div>
                        
 
-                       </div>
+                       </div> 
 
 
                             <div className="p-3 row gy-4">
-                            {tmp && tmp.map(data =>
-                                <Approve key={data.id} image={data.avatar} fName={data.first_name} lName={data.last_name} />
+                            {missn && missn.map(data =>
+                                <Approve key={data.id} id={data.request_id} image={data.image} name={data.name} date={data.start_date} handleCancel={handleCancel} handleApprove={handleApprove}/>
                             )}
                             </div>
 
@@ -53,8 +92,8 @@ function Page4() {
                   </div>
   <div className="p-3 row gy-4 ">
                          
-  {tmp && tmp.map(data =>
-    <Approve key={data.id} image={data.avatar} fName={data.first_name} lName={data.last_name} />
+  {vcn && vcn.map(data =>
+    <Approve key={data.id} image={data.image} name={data.name} date={data.start_date} />
 )}
 
                         </div></div>
@@ -68,14 +107,35 @@ function Page4() {
                   </div>
                         <div className="p-3 row gy-4">
 
-                        {tmp && tmp.map(data =>
-                            <Approve key={data.id} image={data.avatar} fName={data.first_name} lName={data.last_name} />
+                        {wfh && wfh.map(data =>
+                            <Approve key={data.id} image={data.image} name={data.name} date={data.start_date}/>
                         )}
                        
                       
 
-                        </div></div>
+                        </div>
+                        
+                        </div>
                     </div>
+                    <div className="col-xl-4 col-lg-6">
+                    <div className=" divs" style={{ backgroundColor: "#EDF2FF" }}><div className="top4" style={{ backgroundColor: "#EDF2FF" }}> 
+                    <p  style={{color:"#6182E0"}} className=" rnum">*30 Requests</p>
+                    <div style={{background: "linear-gradient(256.88deg, #6182E0 24.97%, #071A4F 159.02%)"}} className="cardTitle4">
+                  
+                   <img alt="logo" src={mlogo} style={{minHeight:"30px"}} />&nbsp;Leave Requests</div>
+              </div>
+                    <div className="p-3 row gy-4">
+
+                    {wfh && wfh.map(data =>
+                        <Approve key={data.id} image={data.image} name={data.name} date={data.start_date}/>
+                    )}
+                   
+                  
+
+                    </div>
+                    
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

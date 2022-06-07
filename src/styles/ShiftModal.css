@@ -108,7 +108,7 @@ margin-right: 5px;
   
   .modalContainer2 {
     width: 500px;
-    height: 500px;
+    height: 550px;
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -157,7 +157,7 @@ margin-right: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+ margin-top: 20px;
   }
   
   .modalContainer2 .footer button {
@@ -204,9 +204,17 @@ color: #353535;
     border-radius: 6px;
     border: none;
     background-color : #e9e9e9; 
-    margin-top: 5px;
+
    padding:0 10px;
    margin-left: 10px;
   }
+.part{
+  font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 140%;
+color: #949494;
 
+}
   

@@ -139,7 +139,7 @@ cursor: pointer;
   text-align: center;
   border-radius: 6px;
   padding: 2px 5px;
-
+display: inline;
   /* Position the tooltip */
   position: absolute;
 
@@ -149,4 +149,37 @@ cursor: pointer;
 
 .action:hover .tooltiptext{
   visibility: visible;
+}
+.attendChoose{
+margin-top: 2%;
+}
+
+.attendChoose p{
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 5rem;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 16px;
+  /* identical to box height, or 143% */
+  
+  letter-spacing: 0.02em;
+  padding-bottom: 5px;
+  /* Gray/700 */
+  
+  color: #464F60;
+  cursor: pointer;
+}
+.attendChoose p:hover{
+  color: #0B1963;
+
+  border-bottom: 5px solid #0B1963;
+}
+
+.attendChoose .chosen{
+  color: #0B1963;
+
+  border-bottom: 5px solid #0B1963;
 }

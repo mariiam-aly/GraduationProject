@@ -162,6 +162,7 @@ letter-spacing: -0.582383px;
 color: #1D1D1D;
 cursor: pointer;
 text-decoration: none;
+margin-bottom: 0;
 }
 .ap3:hover {
     font-weight: 700;
@@ -183,6 +184,29 @@ color: #000000;
 border-style: none none solid none;
 border-color: rgba(23, 53, 136, 1);
   }
+
+  .mnav .active2 {
+    font-weight: 700;
+    font-size: 14.6087px;
+    line-height: 28px;
+    letter-spacing: -0.582383px;
+    
+    color: #000000;
+    border-style: none none solid none;
+    border-color: rgba(23, 53, 136, 1);
+  }
+
+  .mnav .active {
+    font-weight: 700;
+font-size: 14.6087px;
+line-height: 28px;
+letter-spacing: -0.582383px;
+
+color: #000000;
+border-style: none none solid none;
+border-color: rgba(215, 53, 53, 1);
+  }
+
 .status{
 
     margin-bottom: 0;

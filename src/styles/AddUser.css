@@ -247,3 +247,25 @@ color: #253ebd;
 .rel{
     position: relative;
 }
+
+span{
+    font-size: 12px;
+    padding: 3px;
+    color: red;
+    display: none;
+}
+
+
+input:invalid[focused="true"] + span{
+    display: block;
+}
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+select:invalid[focused="true"] + span{
+    display: block;
+}
+select:invalid[focused="true"]{
+    border: 1px solid red;
+}

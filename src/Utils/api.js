@@ -4,8 +4,8 @@ export const register = (data) => {
     return AxiosProvider.post('/register', data)
 }
 
-export const login = ({ email, password }) => {
-    return AxiosProvider.post('/login', { email, password })
+export const login = ({ id, password }) => {
+    return AxiosProvider.post('/login', { id, password })
 }
 export const logout = (token) => {
     return AxiosProvider.post('/logout', {}, {
@@ -17,6 +17,8 @@ export const logout = (token) => {
 }
 
 export const listData = (data) => {
-    return AxiosProvider.get('/users', data)
+    return AxiosProvider.get('/users', {params:{
+        first_name:"George"
+    }})
 }
 

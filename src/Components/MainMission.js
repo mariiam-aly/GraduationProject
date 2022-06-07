@@ -7,8 +7,9 @@ function MainMission(props) {
   const handleShow= ()=>{
     
     props.setMissionId(props.id);
+    props.setMissionName({name:props.fName, status:props.status, describe:props.describe,price:props.price});
     props.setOpenModal(true);
-
+console.log( props.describe);
   }
 
 return(
@@ -21,7 +22,7 @@ return(
     <div>
     <p className="name">{props.fName} {" "}{props.lName} </p>
   
-    <p className="date">Jan 12,2022.</p></div></div>
+    <p className="date">{props.date}</p></div></div>
   
     
     </div>

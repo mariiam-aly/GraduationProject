@@ -6,7 +6,9 @@ import ext from"../assets/Loginext.svg"
 import React, { useRef, useContext } from 'react'
 import { useHistory } from "react-router-dom";
 import { login } from '../Utils/api'
+import { login2 } from '../Utils/api2'
 import { AuthContext } from '../Context/auth'
+import AxiosProvider2 from "../AxiosProvider2";
 function Login(){
 
   let history = useHistory();
@@ -14,17 +16,17 @@ function Login(){
   const nameref = useRef();
   const passref = useRef();
 
-  async function handleSubmit(event) {
+  /*async function handleSubmit(event) {
     event.preventDefault();
-    const email = nameref.current.value;
+    const id = nameref.current.value;
     const password = passref.current.value;
-    console.log(email, password);
+    console.log(id, password);
     const requestBody = {
-      email,
+      id,
       password
     }
     try {
-      const res = await login(requestBody)
+      const res = await login2(requestBody)
       const userData = res.data
       context.login(userData)
       history.push('/page')
@@ -35,7 +37,24 @@ function Login(){
 
 
 
-  }
+  }*/
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const id = nameref.current.value;
+    const password = passref.current.value;
+    AxiosProvider2.post('/login', {
+    id: id,
+    password: password
+  })
+  .then(function (response) {
+    console.log(response);
+    context.login(response.data);
+    history.push('/page');
+  })
+  .catch(function (error) {
+    console.log(error);
+  });}
 
     return(<div className="login">
         <div className="login1"> 
@@ -48,8 +67,8 @@ function Login(){
         <p className="p2">Welcome to Human Resource <span style={{fontWeight:"bold"}}>Paperwork Dashboard.</span></p>
     
         <form onSubmit={handleSubmit}>
-        <label htmlFor="email"></label>
-        <input className='input' type="text" name="email" placeholder="Username" ref={nameref}/>
+        <label htmlFor="id"></label>
+        <input className='input' type="number" name="id" placeholder="Username" ref={nameref}/>
         <label htmlFor="password"></label>
         <input className='input' type="password" name="password" placeholder="Password" ref={passref}/>
         <button className="forget">Forgot Password?</button>

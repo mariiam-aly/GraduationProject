@@ -190,3 +190,57 @@ line-height: 140%;
 color: #220C53;
 
 }
+
+.shiftTime{
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+}
+
+.st-p1{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    
+    color: #393939;
+margin-top: 1.5em;
+}
+.st-p2{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+  color: #000000;
+margin-bottom: 0;
+}
+
+.AddShift input{
+
+    background: #ECECEC;
+border-radius: 8.17098px;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 18px;
+color: #545454;
+width: 100%;
+display: block;
+border: none;
+padding: 1.2em 20px;
+margin-top: 0.5em;
+
+}
+.shiftBtn{
+    width: 100% !important;
+    padding: 1.5em 0;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+

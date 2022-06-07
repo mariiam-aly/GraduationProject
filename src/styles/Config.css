@@ -154,6 +154,10 @@ padding-top: 10px;
 .shft{
     border-color: #C4B8DF;
 }
+
+.vccn{
+    border-color: #2851E3;
+}
 .number{
     font-family: 'Ubuntu';
 font-style: normal;
@@ -173,6 +177,9 @@ margin-bottom: 0;
 .lilac{
     color: #060014;
 }
+.vccnB{
+    color: #2851E3;
+}
 .category{
     font-family: 'Ubuntu';
 font-style: normal;
@@ -191,7 +198,9 @@ margin-bottom: 0;
 .lil{
     color: #220C53;
 }
-
+.BVccn{
+    color:  #2851E3;
+}
 .arrow{
 float:right;
 margin-top: 10px;
@@ -237,6 +246,14 @@ padding: 10px 30px;
     background: #d1c8e4;
  
 }
+.viewV{
+    background: rgba(40, 81, 227, 0.22);
+    color: #2851E3;
+}
+.viewV:hover{
+    background: rgba(31, 62, 174, 0.22);
+ 
+}
 .add{
     background: #58AA5C;
     border-radius: 3.23361px;
@@ -249,7 +266,7 @@ padding: 10px 30px;
     border: none;
     padding: 10px 10px;
 }
-.add:hover{
+.addG:hover{
     background: #4f9953; 
 }
 .addb{
@@ -270,7 +287,12 @@ padding: 10px 30px;
 .addl:hover{
     background: #1e0a49;
 }
-
+.addV{
+    background: #2851E3;
+}
+.addV:hover{
+    background: #1f3fb1;
+}
 .buttons{
 margin-top: 10px;
 display: flex;

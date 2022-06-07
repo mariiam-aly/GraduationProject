@@ -13,12 +13,12 @@ return(
     <img className="profile" alt=" " src={props.image}/>&nbsp;
    
     <div>
-    <p className="name">{props.fName} {" "}{props.lName} </p>
+    <p className="name">{props.name} </p>
   
-    <p className="date">Jan 12,2022.</p></div></div>
+    <p className="date">{props.date}</p></div></div>
     <div>
-     <button className="approve"><FaCheck style={{color:"#8FD817"}}/></button> &nbsp;&nbsp;
-    <button className="decline"><GoX style={{color:"#D43500"}}/></button>
+     <button onClick={()=>props.handleApprove(props.id)} className="approve"><FaCheck style={{color:"#8FD817"}}/></button> &nbsp;&nbsp;
+    <button onClick={()=>props.handleCancel(props.id)} className="decline"><GoX style={{color:"#D43500"}}/></button>
    
     </div>
     </div>

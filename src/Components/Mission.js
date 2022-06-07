@@ -1,8 +1,28 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import "../styles/Mission.css"
-import InProgress from "../Components/State/InProgress.js"
+import Inprogress  from "../Components/State/InProgress.js"
+import Done from "../Components/State/Done.js"
+import Pending from "../Components/State/Pending.js"
 function Mission(props) {
-    
+
+  const handleShow= ()=>{
+     
+    props.setMissionId(props.id);
+    props.setMissionName({name:props.name, status:props.status, describe:props.describe,price:props.price});
+    props.setOpenModal(true);
+    props.setType(props.type);
+  }
+
+  var Status;
+  if (props.status==="pending") {
+    Status = <Pending/>;
+  } 
+  else if (props.status==="in-progress") {
+    Status = <Inprogress/>;
+  }
+  else {
+    Status = <Done/>;
+  }
 return(
     <div className="col-12">
     <div className=" mission">
@@ -11,13 +31,14 @@ return(
     <img alt="profile pic"  className="profile" src={props.image}/>&nbsp;
    
     <div>
-    <p className="name">{props.fName} {" "}{props.lName} </p>
+    <p className="name">{props.name} </p>
   
-    <p className="date">Jan 12,2022.</p></div></div>
-    <InProgress/>
+    <p className="date">{props.date}</p></div></div>
+  {props.show==""?Status:null}
+  
     
     </div>
-    <button className="show">Show Details</button> 
+    <button  onClick={() => handleShow()} className="show">Show Details</button> 
     
    </div>
   </div>

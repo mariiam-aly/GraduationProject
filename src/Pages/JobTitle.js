@@ -1,24 +1,72 @@
 import"../styles/Department.css"
 import logo from "../assets/Titlelogo.svg"
-import React, {useState } from 'react'
+import React, {useState,useEffect,useContext} from "react";
+import { AuthContext } from '../Context/auth';
+import { JobTitles,JobTitles_Create,JobTitles_Delete,JobTitles_Edit} from '../Utils/api2';
 import { AiOutlineDelete,AiOutlineSearch } from "react-icons/ai";
 import JobT from "../Components/JobT";
+import { TitleSharp } from "@material-ui/icons";
 function Department(){
   const[addNew,setAddNew]= useState(false);
+  const[titles,setTitles]= useState();
   const [newName,setNewName]= useState("");
   const[checkCount,setCheckCount]= useState(0);
-  
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    JobTitles(user.token).then(response => {
+      const test=response.data.data;
+      setTitles(test);
+     console.log(response);
+   
+    });
+   
+  },[addNew])
+
+
 function setCheck(no){
   setCheckCount(checkCount+no);
 }
+
+function Create_JobTitle(){
+  console.log("click");
+  JobTitles_Create(newName,user.token).then(response => {
   
+   console.log(response);
+  
+   setNewName("");
+   setAddNew(false);
+
+  });
+}
+function handleDelete(id){
+  JobTitles_Delete(id,user.token).then(response => {
+    const test=response.data.data;
+ 
+   console.log(response);
+ 
+  });
+  const newList = titles.filter((item) =>  id!=item.id) ;
+  setTitles(newList);
+}
+  function handleEdit(id,name){
+    JobTitles_Edit(id,name,user.token).then(response => {
+      const test=response.data.data;
+   
+     console.log(response);
+     
+    });
+    const exist = titles.find((x) => x.id ===id) ;
+
+    setTitles( titles.map((x)=>  x.id ===id? { ...exist, name: name}: x));
+}
 return(        <div className="page6">
 
 <div className="contitle"><div className="contitle2"> <img alt="logo" src={logo} />&nbsp;Company Configurations</div></div>
 <div className="details">
 <img alt="profile" className="compProfile" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"/>
 <div style={{marginLeft:"20px"}}>
-<p className="compName">AevaPay Company</p> <button className="edit">Edit</button>
+<p className="compName">AevaPay Company</p> 
 <p className="compType">Financial Services</p></div></div>
 <div>
 <p className="shift">Company Configurations 	&gt; General Informations 	&gt; </p>&nbsp;<p className="shiftB">Job Titles</p>
@@ -46,8 +94,8 @@ return(        <div className="page6">
 </div>   
 <div> 
 
-<button className="update">Add</button>
-
+<button onClick={Create_JobTitle} className="update">Add</button>
+<button onClick={()=>setAddNew(false)} className="cancel">Cancel</button>
 </div>
 
 </div>
@@ -55,18 +103,12 @@ return(        <div className="page6">
 <hr className="hr"/>
 </div>
 </div> </div>  
-
-<JobT name="Sales Representive" setCheck={setCheck}/>
-<JobT name="Sales Representive" setCheck={setCheck}/>
-<JobT name="Sales Representive" setCheck={setCheck}/>
-<JobT name="Sales Representive" setCheck={setCheck}/>
-<JobT name="Sales Representive" setCheck={setCheck}/> </div> :  
+{titles && titles.map((data,index) =>
+  <JobT handleDel={handleDelete} edit={handleEdit} index={index} key={data.id} name={data.job_name} setCheck={setCheck} id={data.id}/>)}
+ </div> :  
 <div className="row g-2">
- <JobT name="Sales Representive" setCheck={setCheck}/>
- <JobT name="Sales Representive" setCheck={setCheck}/>
- <JobT name="Sales Representive" setCheck={setCheck}/>
- <JobT name="Sales Representive" setCheck={setCheck}/>
- <JobT name="Sales Representive" setCheck={setCheck}/>
+{titles && titles.map((data,index) =>
+  <JobT handleDel={handleDelete} index={index} edit={handleEdit}  key={data.id} name={data.job_name} setCheck={setCheck} id={data.id}/>)}
  </div>
 }
  </div>

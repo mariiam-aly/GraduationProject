@@ -258,3 +258,22 @@ margin-bottom: 0;
 .update:hover{
     background: rgba(88, 170, 92, 0.2);
 }
+
+.cancel{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 17px;
+border: none;
+color: rgb(231, 52, 52);
+background: rgb(255, 180, 180);
+border-radius: 58px;
+text-align: center;
+padding: 7px 15px;
+margin-bottom: 0;
+margin-left: 1em;
+}
+.cancel:hover{
+    background: rgba(255, 1, 1, 0.2)
+}
