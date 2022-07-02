@@ -48,14 +48,14 @@ export const deactivate = (id,token) => {
     });
 }
 export const editUser= (id,body,token) => {
-    return AxiosProvider2.patch(`/users/${id}`, body,{
+    return AxiosProvider2.post(`/users/${id}`, body,{
         headers: {
-            'Content-type': 'multipart/form-data',
-            'Accept':'application/json',
-            'Authorization': `Bearer ${token}`
+          
+            Authorization: `Bearer ${token}`
         }
     });
 }
+
 
 export const mission_All = (token) =>  {
     var params={
@@ -245,7 +245,7 @@ export const Edit_shifts = (id,body,token) => {
 
 
 export const approve = (id,token) => {
-    return AxiosProvider2.post(`/requests/${id}/approve`, {
+    return AxiosProvider2.post(`/requests/${id}/approve`,"", {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -253,15 +253,22 @@ export const approve = (id,token) => {
 }
 
 export const cancel = (id,token) => {
-    return AxiosProvider2.post(`/requests/${id}/cancel`, {
+    return AxiosProvider2.post(`/requests/${id}/cancel`, "",{
         headers: {
             Authorization: `Bearer ${token}`
         }
     });
 }
-
-export const vacation = (month,token) => {
+ 
+export const vacation1 = (month,token) => {
     return AxiosProvider2.get(`/Holidays/ofMonth/${month}`, {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+}
+export const vacation = (token) => {
+    return AxiosProvider2.get(`/holidays`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -296,4 +303,167 @@ export const validate = (token) => {
       
         }
     });
+} 
+export const deduct = (token) => {
+    return AxiosProvider2.get(`/salaryAdjustmentTypes`,{
+        headers: {
+            Authorization: `Bearer ${token}`
+      
+        }
+    });
+} 
+
+export const deleteDeduct = (id,token) => {
+    return AxiosProvider2.delete(`/salaryAdjustmentTypes/${id}`,{
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
 }
+
+export const addDeduct = (data,token) => {
+   const body={
+    name: data.name,
+amount :data.amount,
+    percent: data.percent,
+    isAll:data.isAll
+
+}
+
+    return AxiosProvider2.post(`/salaryAdjustmentTypes`, body,{
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+}
+
+
+export const salary = (token) => {
+    return AxiosProvider2.get(`/slips`,{
+        headers: {
+            Authorization: `Bearer ${token}`
+      
+        }
+    });
+} 
+
+export const editConfig = (body,token) => {
+
+
+    return AxiosProvider2.put(`/Config/1`, body,{
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+}
+
+export const pay = (id,token) => {
+
+
+    return AxiosProvider2.put(`/mission/MakeMissionPaid/${id}`, {},{
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+}
+
+export const fixedV = (token) =>  {
+ 
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.get('/fixedvacation/1',{headers});
+}
+
+
+export const activeUser = (token) =>  {
+ 
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.get('/dashboard/piechart',{headers});
+}
+
+export const getDeduct = (id,token) =>  {
+ 
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.get(`slips/${id}/deductions`,{headers});
+}
+
+
+export const getEarn = (id,token) =>  {
+ 
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.get(`slips/${id}/earnings`,{headers});
+}
+
+export const birthdays = (token) =>  {
+ 
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.get(`/birthdays`,{headers});
+}
+
+
+export const total = (id,token) =>  {
+ 
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.get(`/mission/GetTotalCost/${id}`,{headers});
+}
+
+
+
+
+export const fixedV_edit = (body,token) =>  {
+  
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.post('/fixedvacation/1',  body,{
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+}
+export const deducting = (id,body,token) =>  {
+  
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.post(`/slips/ ${id}/adjustments`,  body,{
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+}
+export const uploadImage = (body,token) =>  {
+  
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.post(`/configimage`,  body,{
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data"
+        }
+    });
+} 
+export const uploadImageUser = (body,token) =>  {
+  
+    var headers= {
+        Authorization: `Bearer ${token}`
+    }
+    return AxiosProvider2.post(`/userimage`,  body,{
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data"
+        }
+    });
+} 

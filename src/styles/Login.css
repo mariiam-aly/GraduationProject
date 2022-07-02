@@ -102,3 +102,16 @@ color: #FFFFFF;
 margin-top: 20%;
 
 }
+.invalidSpan{
+  color: rgb(207, 22, 22);
+  border: none;
+  font-family: Ubuntu;
+  font-style: normal;
+  font-size: 16px;
+
+}
+
+.invalid{
+  border: 2px solid rgb(207, 22, 22) !important;
+  
+}

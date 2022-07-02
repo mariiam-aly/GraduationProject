@@ -24,6 +24,9 @@ import EditConfig from "./Pages/EditConfig";
 import Vacations from "./Pages/Vacations";
 import AttendanceSheet from "./Pages/AttendanceSheet";
 import { EditoContext } from "./Context/EditoContext";
+import Deductions from "./Pages/Deductions";
+import SingleUserTransaction from "./Pages/SingleUserTransaction";
+import Dashboard from "./Pages/Dashboard";
 function App() {
     const [userId,setUserId]=useState("test");
 return(
@@ -44,12 +47,12 @@ pages
   
           <Nav/>
           <EditoContext.Provider value={{userId,setUserId}}>
-          <AuthRoute exact path="/page" component={Page}/>
-          <AuthRoute exact path="/editUser" component={EditUser}/>
+          <AuthRoute exact path="/Userlist" component={Page}/>
+          <AuthRoute exact path="/editUser/:id" component={EditUser}/>
           </EditoContext.Provider>
-          <AuthRoute exact path="/page2" component={Page2}/>
-          <AuthRoute exact path="/page3" component={Page3}/>
-          <AuthRoute exact path="/page4" component={Page4}/>
+          <AuthRoute exact path="/missions" component={Page2}/>
+          <AuthRoute exact path="/requests" component={Page3}/>
+          <AuthRoute exact path="/requests-approve" component={Page4}/>
           <AuthRoute exact path="/addUser" component={AddUser}/>
           <AuthRoute exact path="/config" component={Config}/>
           <AuthRoute exact path="/editconfig" component={EditConfig}/>
@@ -59,6 +62,9 @@ pages
           <AuthRoute exact path="/vacation" component={Vacations}/>
           <AuthRoute exact path="/jobtitle" component={JobTitle}/>
           <AuthRoute exact path="/salary" component={Salary}/>
+          <AuthRoute exact path="/deductions" component={Deductions}/>
+          <AuthRoute exact path="/dashboard" component={Dashboard}/>
+          <AuthRoute exact path="/transaction/:id/:userId" component={SingleUserTransaction}/>
           </div>
           </Switch>
         </Router>

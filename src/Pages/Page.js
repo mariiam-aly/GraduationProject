@@ -8,38 +8,39 @@ import Modal from "../Components/EditModal";
 import { AiOutlineDown, AiOutlineDelete } from "react-icons/ai";
 import {  BsExclamationTriangle } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
-import {Link} from "react-router-dom"
+import {Link,useHistory,generatePath} from "react-router-dom"
 import { EditoContext } from "../Context/EditoContext";
 import AxiosProvider2 from "../AxiosProvider2";
-
+   
 function Page(){
+  let history = useHistory();
   const {userId,setUserId}= useContext(EditoContext);
   const [modalOpen, setModalOpen] = useState(false);
   const { user } = useContext(AuthContext);
 const [active,setActive]=useState(true);
   const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
+    { field: 'id', headerName: 'ID', width: 150 },
 
     { field: 'name', headerName: 'Name', width: 230 },
    
     { field: 'email', headerName: 'Email', width: 300 }, 
     { field: 'phone', headerName: 'Phone', width: 230 },
-    { field: 'active', headerName: 'Active', width: 230 },
-    { field: 'status', headerName: 'Status', width: 230 },
-    { field: 'supervisor', headerName: 'Supervisor', width: 230 },
+    { field: 'active', headerName: 'Active', width: 150 },
+    { field: 'status', headerName: 'Status', width: 150 },
+    { field: 'supervisor', headerName: 'Supervisor', width: 150 },
     {    field: "action",
     type:"number",
-    headerName: " ",
+    headerName: "Actions",
     width: 290,
    
     renderCell: (params) => {
       return (
         <div className="actions">
-   <Link style={{textDecoration:"none"}} to="/editUser" onClick={() => setUserId(params.row.id)}> <button className="action"  >
-      {/*  <button className="action" onClick={() => handleEdit(params.row.id)}> */}<BiEdit className="actionIcon1"/>   <span className="tooltiptext">Edit </span></button></Link>
+  <button className="action" onClick={()=>handleProceed(params.row.id)} >
+      {/*  <button className="action" onClick={() => handleEdit(params.row.id)}> */}<BiEdit className="actionIcon1"/>   <span className="tooltiptext">Edit </span></button>
       
         <button className="action" > <AiOutlineDelete  className="actionIcon2" onClick={() => handleDeleteOneUser(params.row.id)} />  <span className="tooltiptext">Delete </span> </button>
-        <button className="action"> <BsExclamationTriangle  className="actionIcon3" onClick={() => handleDeactiveOneUser(params.row.id)}/>  <span className="tooltiptext">Deactivate </span> </button>
+        <button className="action"> <BsExclamationTriangle  className="actionIcon3" onClick={() => handleDeactiveOneUser(params.row.id)}/>  <span className="tooltiptext">{params.row.active==true? "Deactivate":"Activate"} </span> </button>
      
         </div>
       );
@@ -47,7 +48,14 @@ const [active,setActive]=useState(true);
 
   ];
   
- 
+  function handleProceed(num){
+
+    history.push( generatePath("/editUser/:id", {
+      id: num,
+   
+    }))
+   
+  }
 
 
 const [tmp,setTmp]= useState([]);
@@ -56,6 +64,12 @@ const [editId,setEditId]= useState("");
 const [ids,setIds]= useState([]);
 
 useEffect(() => {
+  const data=JSON.parse(localStorage.getItem("role"));
+  console.log(data);
+if(data==="Accountant"){
+  
+  history.push('/missions');
+}
    listData2(user.token).then(response => {
     const test=response.data.data;
  
@@ -121,7 +135,7 @@ const  handleDeactiveUser=(event)=>{
     },
 }).then(response => {
 console.log(response);
-
+setActive(!active);
 });});
 
 }
@@ -183,7 +197,7 @@ const rows = tmp;
   <button className="dropbtn">Actions &nbsp; <AiOutlineDown/> </button>
   <div className="dropdown-content">
   <a href=" " onClick={(event)=>handleDeleteUser(event)}>Delete</a>
-  <a href=" "  onClick={(event)=>handleDeactiveUser(event)}>Deactivate</a>
+  <a href=" "  onClick={(event)=>handleDeactiveUser(event)}>Deactivate/Activate</a>
   
   </div>
 </div>

@@ -10,24 +10,14 @@ function Dep(props){
  
   function handleEdit(){ 
     setEditMode(true);
-    var checkBox=document.getElementsByClassName("check");
-    if(checkBox[props.index].checked){
-    props.setCheck(-1)}
+  
   }
   
   function handleChange(e){
     setDepName(e.target.value)
    }
   
- const handleCheck= (e)=>{
-  const checked = e.target.checked;
-  if(checked){
-  props.setCheck(1);}
-  else{
-    props.setCheck(-1);
-  }
 
-}
 
 const update= ()=>{
   setEditMode(false);
@@ -35,7 +25,7 @@ const update= ()=>{
   setName(depName);
   props.edit(props.id,props.name);
 } 
-
+ 
 const cancel= ()=>{
   setEditMode(false);
   setDepName(name);
@@ -60,16 +50,14 @@ return(
 
 </div>
 <div className="center">
-<hr className="hr"/>
+<hr style={{height:"1px"}} className="hr"/>
 </div>
 </div>:
       <div className="spc">
       <div className="dep ">
       <div> 
  
-      <input onChange={(e) => {
-        handleCheck(e)
-    }} className="check" type="checkbox" value={props.id}/>
+     
       <p  className="depName">{depName}  <br/><span className="depQuan">25 Departments</span></p>  </div>   
       <div> 
    

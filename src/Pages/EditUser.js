@@ -8,12 +8,13 @@ import { BsSun,BsMoonStars } from "react-icons/bs";
 import { EditoContext } from "../Context/EditoContext";
 import { AuthContext } from '../Context/auth';
 import { editUser } from '../Utils/api2'
-import { useHistory } from "react-router-dom";
-import { departments,JobTitles,singleUser,listData2,shifts } from '../Utils/api2';
-function EditUser(){
+import { useHistory,useParams } from "react-router-dom";
+import { departments,JobTitles,singleUser,listData2,shifts,uploadImageUser } from '../Utils/api2';
+function EditUser(){ 
   let history = useHistory();
   const {userId}= useContext(EditoContext);
   const { user } = useContext(AuthContext);
+  const id = useParams().id;
   const [department,setDepartment]= useState();
 const [title,setTitle]= useState();
 const [load,setLoad]= useState(true);
@@ -22,10 +23,12 @@ const [single,setSingle]= useState();
 const [shift,setShift]=useState();
 const [role,setRole]=useState();
 const [editData,seteditData]= useState();
+const [ediImage, setEditImage] = useState();
 const roles=["Admin","HR","Accountant","Normal"];
 const yes=true;
 const no=false
   useEffect(() => {
+    console.log(id)
     departments(user.token).then(response => {
     
       setDepartment(response.data.data);
@@ -41,7 +44,7 @@ const no=false
       setTitle(response.data.data);
    
     });
-    singleUser(userId,user.token).then(response => {
+    singleUser(id,user.token).then(response => {
     console.log(response.data.data[0][0]);
     const role= response.data.data.role[0];
     console.log(response.data.data.role[0]);
@@ -111,17 +114,35 @@ const no=false
   });
   const [tmp,setTmp]= useState([]);
 
+  const formdata =new FormData();
   
+  formdata.append('image',imagePath)
+  formdata.append('user_id',id)
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(values);
     console.log(focus);
     const token= localStorage.getItem("token")
-    editUser(userId,editData,token).then(response => {
+    editUser(id,editData,token).then(response => {
     
       console.log(response);
-      history.push('/page');
+      uploadImageUser(formdata,user.token).then(response => {
+        console.log(response)
+        setEditImage(!ediImage)
+      
+        })
+
+        history.push('/Userlist');
+    
      })
+
+  
+   
+ for (var key of formdata.entries()) {
+      console.log(key[0] + ', ' + key[1]);
+  }
+
+
   };
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -135,17 +156,16 @@ const no=false
     console.log(editData);
   };
 
-  const onChangeImage = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.files[0].name});
-    seteditData({ ...editData, [e.target.name]:   e.target.files[0].name});
-    console.log(e.target.files[0].name);
-  };
-
+ 
 
   const handleFocus = (e) => {
     setFocus({ ...focus, [e.target.name]: "true" });
    
   };
+  const onChangeImage = (e) => {
+    setImage(e.target.files[0])
+     console.log(e.target.files[0])
+    };
  
  
 return(        <div className="page5">
@@ -160,11 +180,11 @@ return(        <div className="page5">
 <div className="col-lg-6">
 
 <label className='lbl' htmlFor="name">Name</label>
-<input className='inpuser' type="text" name="name"  pattern="^[a-zA-Z ]{3,100}$" value={values.name} onChange={onChange} required onBlur={handleFocus} focused={focus.name.toString()}/>
+<input className='inpuser' type="text" name="name"   value={values.name} onChange={onChange} required onBlur={handleFocus} focused={focus.name.toString()}/>
 <span>Username should be 3-16 characters with phone special characters</span>
 <label className='lbl' htmlFor="phone">Phone Number</label>
 
-<input className='inpuser' type="text" name="phone" placeholder="Phone Number" pattern= "^[0]([0-9]{10})$" value={values.phone} onChange={onChange} required onBlur={handleFocus} focused={focus.phone.toString()}/>
+<input className='inpuser' type="text" name="phone" placeholder="Phone Number"  value={values.phone} onChange={onChange} required onBlur={handleFocus} focused={focus.phone.toString()}/>
 <span>Phone Number should be 9 Numbers</span>
 <label className='lbl' htmlFor="email">Email</label>
 <input className='inpuser' type="email" name="email" placeholder="Name@Domain.com" pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" value={values.email} onChange={onChange} required  onBlur={handleFocus} focused={focus.email.toString()}/>
@@ -174,7 +194,7 @@ return(        <div className="page5">
     <div className="col-6">
     <label className='lbl' htmlFor="department_id">Department</label>
     <select  name="department_id" value={values.department_id} onChange={onChange2} required  onBlur={handleFocus} focused={focus.department_id.toString()}>
-  
+   
     {department && department.map(data =>
       <option key={data.id} value={data.id}>{data.name}</option>
   )}
@@ -241,7 +261,7 @@ return(        <div className="page5">
 <span>Please pick birthdate</span>
 
 <label className='lbl' htmlFor="image">Profile picture</label>
-<input style={{padding:"15px 10px"}}  className='inpuser ' type="file" name="image" value={imagePath} onChange={onChangeImage}    onBlur={handleFocus} focused={focus.image.toString()}/>
+<input style={{padding:"15px 10px"}}  className='inpuser ' type="file" name="image" onChange={onChangeImage}    onBlur={handleFocus} focused={focus.image.toString()}/>
 <span>Please upload image</span>
 
 <div className=" overflow-hidden">
@@ -249,7 +269,7 @@ return(        <div className="page5">
   <div className="row g-2">
     <div className="col-4">
    
-<input className='inpuserA ' type="number" name="scheduled" value={values.scheduled} onChange={onChange2} pattern= "^[0-9]{0,100})$" placeholder="30 Days" required onBlur={handleFocus} focused={focus.scheduled.toString()}/>
+<input className='inpuserA ' type="number" name="scheduled" value={values.scheduled} onChange={onChange2}  placeholder="30 Days" required onBlur={handleFocus} focused={focus.scheduled.toString()}/>
 <span>Please enter number</span>
 <label className='lbl2' htmlFor="scheduled">Vacation</label>
 
@@ -258,7 +278,7 @@ return(        <div className="page5">
     
     
     <div className="col-4">
-    <input className='inpuserA ' type="number" name="unscheduled" placeholder="8 Days" value={values.unscheduled} onChange={onChange2} pattern= "^[0-9]{0,100})$" required  onBlur={handleFocus} focused={focus.unscheduled.toString()}/>
+    <input className='inpuserA ' type="number" name="unscheduled" placeholder="8 Days" value={values.unscheduled} onChange={onChange2}  required  onBlur={handleFocus} focused={focus.unscheduled.toString()}/>
     <span>Please enter number</span>
     <label className='lbl2' htmlFor="unscheduled">Unpaid Leave</label></div>
    
@@ -287,7 +307,7 @@ return(        <div className="page5">
   <div   className="row g-2">
     <div className="col-6">
     <label className='lbl' htmlFor="salary">Basic Salary</label>
-    <input className='inpuserS' type="text" name="salary" value={values.salary} onChange={onChange2} pattern="^[0-9]+$" placeholder="EGP 1.500" required  onBlur={handleFocus} focused={focus.salary.toString()}/>
+    <input className='inpuserS' type="text" name="salary" value={values.salary} onChange={onChange2}  placeholder="EGP 1.500" required  onBlur={handleFocus} focused={focus.salary.toString()}/>
     <span>Please enter number</span>
     </div>
    

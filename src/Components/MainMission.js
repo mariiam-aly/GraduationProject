@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Mission.css"
-
+import dp from "../assets/default-profile-icon-24.jpg"
 function MainMission(props) {
   
 
@@ -11,13 +11,13 @@ function MainMission(props) {
     props.setOpenModal(true);
 console.log( props.describe);
   }
-
+ 
 return(
     <div className="col-12">
     <div className=" mission">
     <div className="arrange">
-    <div className="data">
-    <img alt="profile pic" className="profile" src={props.image}/>&nbsp;
+    <div className="data"> 
+    <img alt="profile pic" className="profile"  src={props.image!==null && props.image!==" "?props.image:dp}/>&nbsp;
    
     <div>
     <p className="name">{props.fName} {" "}{props.lName} </p>

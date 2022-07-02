@@ -1,0 +1,352 @@
+.DeductLogo{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 14.108px;
+line-height: 21px;
+display: flex;
+align-items: center;
+letter-spacing: -0.429893px;
+
+color: #FFFFFF;
+background: #220C53;
+border-radius: 3.9px;
+display: inline-block;
+padding: 1em 1.5em;
+margin-left: 30px;
+}
+.DeductLogo img{
+    width: 20px;
+}
+
+.ssTotal{
+ text-align: center;
+ margin: 2em 0;
+ margin-bottom: 2em;
+}
+.ssTotal div{
+  text-align: left;
+  display: inline-block;
+ }
+.ssTotal p{
+  text-align: center;
+  color: #58AA5C;
+  font-weight: 700;
+font-size: 16.108px;
+margin-bottom: 0;
+background-color: #EDF6EE;
+display: inline-block;
+padding: 0.1em 0.5em;
+ }
+ .ssTotal .ssTotalNum{
+  font-size: 36.108px;
+  background-color: transparent;
+display: block;
+padding: 0;
+ }
+
+.Month{
+  color: #58AA5C;
+justify-content: center;
+display: flex;
+margin-left: 30px;
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 14.108px;
+line-height: 21px;
+overflow-x: auto;
+}
+.deducCenter{
+  text-align: center;
+}
+.breakdown{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+.breakdown p{
+
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 25px;
+ 
+  color: #959595;
+  margin-bottom: 0;
+}
+.breakdownTotal p{
+
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+ 
+  color: #58AA5C;
+}
+.breakdownTotalR p{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+ 
+  color: #CF2121;
+}
+.deducCenter div{
+  background-color: rgba(255, 222, 222, 1);
+  color:  #CF2121;
+  padding: 0.5em 1em;
+}
+.InDeducCenter{
+  text-align: center;
+}
+.InDeducCenter div{
+
+  background-color: #EDF6EE;
+ color: #58AA5C;
+ padding: 0.5em 1em;
+}
+.Month p{
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 2em;
+}
+.Month p:hover{
+border-bottom: 3px solid #58AA5C;;
+  color: #58AA5C;;
+  font-weight: 600;
+font-size: 18.108px;
+}
+.slipContainer{
+padding: 0 5em;
+
+}
+.activeMonth{
+  border-bottom: 3px solid #58AA5C;;
+    color: #58AA5C;;
+    font-weight: 600;
+  font-size: 18.108px;
+  }
+  
+.table{
+    color:  #0B1963 !important;
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 11.7952px;
+line-height: 14px;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+}
+td{
+font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 38px;
+text-transform: uppercase;
+
+color: #25213B;
+}
+.deductName{
+  text-align: left;
+}
+.true{
+    color: #58AA5C;;
+    background: #CDFFCD;
+border-radius: 12.416px;
+padding: 0 1em;
+margin-bottom: 0;
+}
+.false{
+    color: #D43500;
+    background: rgba(212, 53, 0, 0.12) ;
+    border-radius: 12.416px;
+    padding: 0 1em;
+    margin-bottom: 0;
+}
+.alignTd{
+   display: flex;
+   justify-content: center; 
+   align-content: center;
+}
+.check input{
+width: auto;
+display: inline-block;
+}
+input[type="checkbox"] {
+    accent-color: #0d2182;
+    cursor: pointer; 
+    margin-right: 1em;   
+}
+input[type="radio"] {
+  accent-color: #0d2182;
+  cursor: pointer; 
+
+}
+.dropbtnDed:hover{
+  color: #CF2121;
+}
+.deductType{
+  margin-top: 2em;
+}
+.deductType input{
+  display: inline-block;
+  margin-right: 1em;
+  width: auto;
+}
+.deductType label{
+
+   
+  font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+
+text-transform: uppercase;
+
+color: #7D7D7D;
+}
+
+.checkDeduct{
+    margin-top: 1em;
+   
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+
+text-transform: uppercase;
+
+color: #7D7D7D;
+
+}
+
+.dropdownDed {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdownDed-content {
+  display: none;
+    position: absolute;
+    right: 0;
+    top: -100px;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 200;
+    cursor: pointer;
+    
+  }
+  
+  .dropdownDed-content p{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+margin-bottom: 0;
+  }
+  
+  .dropdownDed-content p:hover {background-color: #f1f1f1}
+  
+  .dropdownDed:hover .dropdownDed-content {
+    display: block;
+  }
+ 
+  .dropdownDed .dropbtnDed  {
+    background-color: transparent;
+   border: none;
+  }
+
+  .Transaction select{
+    width: 100% !important;
+    height: 2.8em  !important;
+    border-radius: 6px;
+    border: none;
+    background-color : #e9e9e9; 
+   padding:0 10px;
+   cursor: pointer;
+   color: #545454;
+ margin-top: 5px !important;
+ font-family: 'Barlow';
+font-style: normal;
+font-weight: 500;
+font-size: 17.6628px;
+line-height: 130%;
+/* identical to box height, or 23px */
+
+
+
+}
+
+select:invalid,
+select option[value=""] {
+color: #C6C6C6;
+}
+option{
+border: transparent;
+}
+
+.textBorder {
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 15px;
+/* identical to box height */
+
+
+color: #8B8B8B;
+margin-bottom: 0;
+margin-top: 2em;
+}
+
+.textBorder:before,
+.textBorder:after {
+  background-color:  #8B8B8B;
+  content: "";
+  display: inline-block;
+  height: 1.5px;
+  position: relative;
+  vertical-align: middle;
+  width: 15%;
+}
+
+.textBorder:before {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+.textBorder:after {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+.viewAllTran{
+  font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 14px;
+text-align: center;
+
+color: #8FD817;
+background: rgba(143, 216, 23, 0.19);
+border-radius: 2px;
+border: none;
+padding: 1em 0.5em;
+}
+.viewAllTran:hover{
+  background: rgba(143, 216, 23, 0.29);
+
+}

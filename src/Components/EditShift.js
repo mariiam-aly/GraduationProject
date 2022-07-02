@@ -81,21 +81,21 @@ const [shiftID,setShiftId]=useState();
 
          
           <div  className="AddShift">
-         <div >
-        
+         <div > 
+         
           <label htmlFor="name"></label>
           <input type="text"  name="name" placeholder="Shift Name"  pattern="^[a-zA-Z ]{3,100}$" value={values.name} onChange={onChange} required onBlur={handleFocus} focused={focus.name.toString()}/>
           <span>Please enter shift name</span>
           </div>
           <label htmlFor="start_time"></label>
-          <input className="start" type="time" name="start_time" value={values.start_time} onChange={onChange} required  onBlur={handleFocus} focused={focus.start_time.toString()}/>
-          <span>Please pick start time</span>
+          <input className="start" type="time" step="2" max={values.midday} name="start_time" value={values.start_time} onChange={onChange} required  onBlur={handleFocus} focused={focus.start_time.toString()}/>
+          <span>Start time can't exceed midday time</span>
            <label  htmlFor="midday"></label>
-           <input className="mid" type="time" name="midday" value={values.midday} onChange={onChange} required  onBlur={handleFocus} focused={focus.midday.toString()}/>
-           <span>Please pick midday time</span>
+           <input className="mid" type="time" step="2" min={values.start_time} name="midday" value={values.midday} onChange={onChange} required  onBlur={handleFocus} focused={focus.midday.toString()}/>
+           <span> Midday time must exceed start time</span>
            <label  htmlFor="end_time"></label>
-           <input className="end" type="time" name="end_time" value={values.end_time} onChange={onChange} required  onBlur={handleFocus} focused={focus.end_time.toString()}/>
-           <span>Please pick end time</span>
+           <input className="end" type="time" step="2" min={values.midday} name="end_time" value={values.end_time} onChange={onChange} required  onBlur={handleFocus} focused={focus.end_time.toString()}/>
+           <span> End time must exceed Midday time</span>
            </div>
           <div  className="footer">
             <button className="shiftBtn" type="submit" >

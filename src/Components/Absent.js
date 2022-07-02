@@ -12,9 +12,12 @@ function Absent(){
   const { user } = useContext(AuthContext);
   const [attend,setAttend]= useState([]);
   const columns = [
-    { field: 'user_id', headerName: 'ID', width: 70 },
+    { field: 'user_id', headerName: 'ID', width: 150 },
 
-    { field: 'name', headerName: 'Name', width: 230 },
+    { field: `user`, headerName: 'Name', width: 230,  
+    renderCell: (params) => {
+    return <div className="rowitem">{params.row.user.name}</div>;
+  }},
     { field: 'date', headerName: 'Date', width: 230 },
    
     
@@ -26,9 +29,9 @@ function Absent(){
 
   useEffect(() => {
     console.log(user.token);
-    Attend("absences",user.token).then(response => {
-      const test=response.data.data;
-   console.log(response);
+    Attend("admin/absencelog",user.token).then(response => {
+      const test=response.data;
+   console.log(response.data);
       if(test==undefined){
         setAttend([ ]);  
        }

@@ -1,0 +1,131 @@
+.dashboard{
+    display: flex;
+    align-items: center;
+    background: #E5E5E5;
+}
+.dbRequests{
+
+
+    background: #FFFFFF;
+border-radius: 20.2896px
+}
+.apexcharts-canvas {
+
+
+    display: unset !important;
+}
+.dbRequests-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-bottom: 1em;
+    background-color: white;
+    padding: 1em;
+}
+
+.birthdays p{
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16.5141px;
+    line-height: 17px;
+    letter-spacing: -0.344044px;
+    
+    color: #f47575;
+}
+
+
+
+.birthdays li{
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16.5141px;
+    line-height: 17px;
+    letter-spacing: -0.344044px;
+    
+    color: #8A8A8A;
+    margin-bottom: 1em;
+}
+
+.birthdays  ul {
+    list-style-type: none;
+    padding: 0;
+   }
+.apexcharts-canvas {
+    width: 100% !important;
+    position: relative;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+#SvgjsText3855 {
+    font-family: 'Ubuntu' !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16.5141px;
+    line-height: 17px;
+    letter-spacing: -0.344044px;
+    
+    fill: #081878 !important;
+    margin-bottom: 0;  
+}
+.dbRequests-top p{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 16.5141px;
+line-height: 17px;
+letter-spacing: -0.344044px;
+
+color: #081878;
+margin-bottom: 0;
+}
+.dbRequests-top button{
+    background: #E1EBFF;
+    border-radius: 4px;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 10.9474px;
+line-height: 108%;
+padding: 1em 2em;
+text-align: center;
+letter-spacing: 0.02em;
+border: none;
+color: #081878;
+
+}
+.dbRequests-top button:hover{
+
+    background: #becbe5;
+}
+.dbRequests span{
+    display:inline-block;
+}
+.dbReqType{ 
+
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400 !important;
+font-size: 10.7473px !important;
+line-height: 18px;
+/* or 102% */
+
+letter-spacing: -0.344044px;
+
+color: #8A8A8A !important;
+}
+
+@media screen and (max-width: 1270px) {
+    .main-div {
+    display: inline-block !important;
+    padding: 1em;
+    }
+  }

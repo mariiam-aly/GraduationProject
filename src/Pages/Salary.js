@@ -1,47 +1,56 @@
 import "../styles/Page1.css"
 import axios from 'axios';
-import React, {useState,useEffect} from "react";
+import React, {useState,useEffect,useContext} from "react";
 import { DataGrid } from '@mui/x-data-grid';
 
 import { listData } from '../Utils/api'
+import { salary } from '../Utils/api2' 
 import Modal from "../Components/EditModal";
 import { AiOutlineDown, AiOutlineDelete } from "react-icons/ai";
 import {  BsExclamationTriangle } from "react-icons/bs";
 import { BiEdit } from "react-icons/bi";
 import { GoDiffAdded } from "react-icons/go";
 import {Link} from "react-router-dom"
-
+import { AuthContext } from '../Context/auth';
+import TransactionModal from "../Components/TransactionModal";
+import { generatePath,useHistory } from "react-router-dom";
 function Salary(){
   const [modalOpen, setModalOpen] = useState(false);
+  const [salaries, setSalaries] = useState([]);
+  const { user } = useContext(AuthContext);
+  const history = useHistory();
   const columns = [
-    { field: 'id', headerName: 'ID', width: 70 },
+    { field: 'user_id', headerName: 'ID', width: 150 },
 
-    { field: 'first_name', headerName: 'First name', width: 230 },
-    { field: 'last_name', headerName: 'Last name', width: 230 },
+    { field: 'user_name', headerName: 'First name', width: 230 },
+    { field: 'net_salary', headerName: 'Net Salary ', width: 230 },
    
-    { field: 'email', headerName: 'Email', width: 300 }, 
-    {    field: "action",
-    type:"number",
-    headerName: "Bonus",
+   
+    {    field: "transaction",
+   
+    headerName: "Transactions",
     width: 290,
    
     renderCell: (params) => {
       return (
-        <div >
-        <button className="action"> <GoDiffAdded  className="actionIcon3"/>  <span className="tooltiptext">Add </span> </button>
-   <a style={{textDecoration:"none"}} href="\editUser"> <button className="action">
-      {/*  <button className="action" onClick={() => handleEdit(params.row.id)}> */}<BiEdit className="actionIcon1"/>   <span className="tooltiptext">Edit </span></button></a>
-        <button className="action" > <AiOutlineDelete  className="actionIcon2"/>  <span className="tooltiptext">Delete </span> </button>
-        
-     
+        <div style={{display:"flex",justifyContect:"center"}}>
+        <button onClick={()=>handleProceed(params.row.id,params.row.user_id)} className="viewAllTran"> View All Transactions </button>
+
         </div>
       );
-    }, }, 
+    }, }
 
   ];
   
- 
+   
+function handleProceed(num,usr){
 
+  history.push( generatePath("/transaction/:id/:userId", {
+    id: num,
+ userId: usr
+  }))
+ 
+}
 
 const [tmp,setTmp]= useState([]);
 const [editId,setEditId]= useState("");
@@ -56,7 +65,16 @@ useEffect(() => {
    console.log(test);
  
   });
-},[])
+ 
+  
+  salary(user.token).then(response => {
+    const slry=response.data.data;
+ 
+ console.log(slry)
+    setSalaries(slry);
+ 
+  });
+},[modalOpen])
 
 const handleEdit= (id)=>{
   setModalOpen(true);
@@ -93,28 +111,26 @@ const handleDelete= async()=>{
   
 
 }
- 
-const rows = tmp;
+ function handleSet(data){
+  console.log(data)
+  setIds(data)
+ }
+const rows = salaries;
     return(<div className="page1">
 
-    {modalOpen && <Modal setOpenModal={setModalOpen} id={editId} doneEdit={onEdit}/>}
+    {modalOpen && <TransactionModal setOpenModal={setModalOpen} ids={ids} />}
    
     <div className="page11 ">
     <div className=" navbar">
-    <p className="user">salary</p>
-
+    <p className="user">salary slip</p>
+    <div className="d-flex">
+  <button disabled={ids.length==0?true:false} onClick={()=>setModalOpen(true)} className="addUser" >Add New Transaction</button>
   </div>
-    <div className="dropdown">
-  <button className="dropbtn">Actions &nbsp; <AiOutlineDown/> </button>
-  <div className="dropdown-content">
-  <a href=" " onClick={handleDelete}>Delete</a>
-  <a href=" "  onClick={handleDelete}>Deactivate</a>
-  
   </div>
-</div>
+   
    </div>
    
-  
+   
     <div className="list container">
     <hr/>
     <DataGrid
@@ -124,7 +140,7 @@ const rows = tmp;
     rowsPerPageOptions={[6]}
     checkboxSelection
     disableSelectionOnClick
-    onSelectionModelChange={(data)=>{setIds(data)}}
+    onSelectionModelChange={(data)=>{handleSet(data)}}
   />
   
     <ul>

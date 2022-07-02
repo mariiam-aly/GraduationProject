@@ -3,6 +3,37 @@
     flex: 5;
 
 }
+.comptEdit{
+
+color: #081249 !important;
+  cursor: pointer;
+
+margin-bottom: 0;
+
+}
+
+.comptEdit:hover{
+    text-decoration: underline;
+}
+.custom-file-upload {
+    color: #081249 !important;
+
+    cursor: pointer;
+  
+  margin-bottom: 0;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.compImage input{
+
+background-color: transparent;
+width: auto;
+height: auto;
+padding: 1.5px;
+
+}
 .contitle{
     width: 100%;
     height: 160px;
@@ -158,6 +189,9 @@ padding-top: 10px;
 .vccn{
     border-color: #2851E3;
 }
+.ddct{
+    border-color: #55BEFF;
+}
 .number{
     font-family: 'Ubuntu';
 font-style: normal;
@@ -180,6 +214,9 @@ margin-bottom: 0;
 .vccnB{
     color: #2851E3;
 }
+.ddctB{
+    color: #55BEFF;
+}
 .category{
     font-family: 'Ubuntu';
 font-style: normal;
@@ -200,6 +237,9 @@ margin-bottom: 0;
 }
 .BVccn{
     color:  #2851E3;
+}
+.BDdct{
+    color:  #55BEFF;
 }
 .arrow{
 float:right;
@@ -254,6 +294,14 @@ padding: 10px 30px;
     background: rgba(31, 62, 174, 0.22);
  
 }
+.viewD{
+    background: rgba(85, 190, 255, 0.22);
+    color: #55BEFF;
+}
+.viewD:hover{
+    background: rgba(85, 190, 255, 0.411);
+ 
+}
 .add{
     background: #58AA5C;
     border-radius: 3.23361px;
@@ -292,6 +340,12 @@ padding: 10px 30px;
 }
 .addV:hover{
     background: #1f3fb1;
+}
+.addD{
+    background: #55BEFF;
+}
+.addD:hover{
+    background: #33a5ec;
 }
 .buttons{
 margin-top: 10px;

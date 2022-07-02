@@ -44,6 +44,12 @@ overflow-x: hidden;
     width: 8px;
 }
 
+.hr4{
+ 
+    border: 1.5px solid #CF2121;
+    color:#CF2121;
+opacity: 1;
+}
 .hr1{
  
     border: 1.5px solid #0B1963;

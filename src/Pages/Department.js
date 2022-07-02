@@ -1,19 +1,28 @@
-import"../styles/Department.css"
+import"../styles/Department.css" 
 import React, {useState,useEffect,useContext} from "react";
 import { AuthContext } from '../Context/auth';
-import { departments,delete_departments,Departments_Edit,Departments_Create } from '../Utils/api2';
+import { CompanyConfig,departments,delete_departments,Departments_Edit,Departments_Create } from '../Utils/api2';
 import logo from "../assets/Titlelogo.svg"
 import { AiOutlineDelete,AiOutlineSearch } from "react-icons/ai";
 import Dep from "../Components/Dep";
-
+import dp from "../assets/default-profile-icon-24.jpg"
 function Department(){
   const[addNew,setAddNew]= useState(false);
   const[depart,setDepart]= useState(false);
+  const[del,selDel]= useState(false);
   const [newName,setNewName]= useState("");
   const[checkCount,setCheckCount]= useState(0);
   const { user } = useContext(AuthContext);
-
+  const [con,setConfig]= useState([]);
+  const [searchTerm,SetSearchTerm]=useState('');
   useEffect(() => {
+    CompanyConfig(user.token).then(response => {
+      const test=response.data.data;
+   
+      setConfig(test);     
+   console.log(response.data.data)
+    });   
+  
     departments(user.token).then(response => {
       const test=response.data.data;
       setDepart(test);
@@ -21,11 +30,11 @@ function Department(){
    
     });
    
-  },[addNew])
+  },[addNew,del])
   function handleDelete(id){
     delete_departments(id,user.token).then(response => {
       const test=response.data.data;
-   
+      selDel(!del);
      console.log(response);
    
     });
@@ -59,24 +68,23 @@ return(        <div className="page6">
 
 <div className="contitle"><div className="contitle2"> <img alt="logo" src={logo} />&nbsp;Company Configurations</div></div>
 <div className="details">
-<img alt="profile" className="compProfile" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"/>
+<img alt="profile" className="compProfile" src={con.photo!==null && con.photo!==" "?con.photo:dp}/>
 <div style={{marginLeft:"20px"}}>
-<p className="compName">AevaPay Company</p> 
-<p className="compType">Financial Services</p></div></div>
+<p className="compName">{con.company_name}</p> 
+<p className="compType">{con.specifity}</p></div></div>
 <div>
 <p className="shift">Company Configurations 	&gt; General Informations 	&gt; </p>&nbsp;<p className="shiftB">Departments</p>
 <div className="end">
 <button onClick={() => setAddNew(true)} className="addDep">Add new Department</button>
 <div style={{position:"relative"}}>
-<AiOutlineSearch className="srchI"/>
-<input className="search" type="text" placeholder="Search Department"/></div>
+<AiOutlineSearch className="srchI" />
+<input className="search" type="text"  onChange={(e)=>SetSearchTerm(e.target.value)} placeholder="Search Department" />
+</div>
 </div>
 </div>
 <div className="delDiv">
-<p className="count">{checkCount} Departments Selected</p>
-<div>
-<button  className="biEdit bRed delAll"><AiOutlineDelete style={{color:"#D43500"}}/></button>&nbsp;
-<p className="delP">Delete All</p></div>
+
+
 </div>
 <div style={{marginTop:"50px"}} className="container">
 {addNew?<div className="row g-2">
@@ -99,13 +107,41 @@ return(        <div className="page6">
 <hr className="hr"/>
 </div>
 </div> </div>  
-{depart && depart.map((data,index) =>
-  <Dep handleDel={handleDelete} edit={handleEdit}  index={index} key={data.id} name={data.name} setCheck={setCheck} id={data.id}/>)}
- </div> :  
+
+ 
+  {depart && depart.filter((data)=>{
+    if(searchTerm===""){
+        return data;
+    } 
+    else if(data.name.toLowerCase().includes(searchTerm.toLowerCase())){
+return data;
+   }
+ }).map((data,index) =>
+
+ <Dep   handleDel={handleDelete} edit={handleEdit}  index={index} key={data.id} name={data.name} setCheck={setCheck} id={data.id}/>)}
+  
+
+  </div> 
+ 
+ 
+ 
+ 
+ 
+ :  
 <div className="row g-2">
-{depart && depart.map((data,index) =>
-  <Dep handleDel={handleDelete} edit={handleEdit}  index={index} name={data.name} setCheck={setCheck}  id={data.id}/>)}
- </div>
+{depart && depart.filter((data)=>{
+  if(searchTerm===""){
+      return data;
+  } 
+  else if(data.name.toLowerCase().includes(searchTerm.toLowerCase())){
+return data;
+ }
+}).map((data,index) =>
+
+<Dep   handleDel={handleDelete} edit={handleEdit}  index={index} key={data.id} name={data.name} setCheck={setCheck} id={data.id}/>)}
+ 
+
+  </div>
 }
  </div>
   </div>

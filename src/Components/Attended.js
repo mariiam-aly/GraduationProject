@@ -11,7 +11,7 @@ function Attended(){
   const { user } = useContext(AuthContext);
   const [attend,setAttend]= useState([]);
   const columns = [
-    { field: 'user_id', headerName: 'ID', width: 70 },
+    { field: 'user_id', headerName: 'ID', width: 150 },
 
     { field: `user`, headerName: 'Name', width: 230,  
       renderCell: (params) => {
@@ -34,7 +34,7 @@ function Attended(){
     Attend("admin/attendancelog",user.token).then(response => {
       const test=response.data;
       console.log(response)
-      console.log(response.data[0].user.name)
+  
    if(test==undefined){
     setAttend([ ]);  
    }
