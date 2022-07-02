@@ -7,6 +7,7 @@ import React, {useState,useEffect,useContext} from "react";
 import { AuthContext } from '../Context/auth';
 import { departments,JobTitles,listData2,createUser,shifts } from '../Utils/api2';
 import {Link,useHistory} from "react-router-dom"
+import Password from "../Components/Password";
 function AddUser(){
   let history = useHistory();
   const { user } = useContext(AuthContext);
@@ -15,6 +16,10 @@ const [title,setTitle]= useState();
 const [users,setUsers]= useState();
 const roles=["Admin","HR","Accountant","Normal"];
 const [shift,setShift]=useState();
+const [err,setErr]=useState();
+const [errMsg,setErrMsg]=useState();
+const [modal,setModal]=useState(false);
+const [pass,setPass]=useState("");
 const yes=true;
 const no=false
   useEffect(() => {
@@ -85,10 +90,15 @@ useEffect(() => {
     e.preventDefault();
    
     createUser(values,user.token).then(response => {
-    
-      console.log(response);
-      history.push('/Userlist');
-    });
+      setPass(response.data.data.password)
+      console.log(response.data);
+setModal(true);
+    //  history.push('/Userlist');
+    }).catch(function (error) {
+      console.log(error.response.data);
+      setErrMsg(error.response.data.error.id)
+      setErr(true);
+    }); ;
   };
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -106,6 +116,8 @@ useEffect(() => {
   };
  
 return(        <div className="page5">
+
+{modal? <Password pass={pass} setModal={setModal}/>:null}
 <div className="title"> <img alt="logo" src={logo} />&nbsp;Add New Employee</div>
 
 <div className="container space">
@@ -230,13 +242,13 @@ return(        <div className="page5">
   <div  style={{marginTop:"19px"}} className="row g-2">
     <div className="col-6">
     <label className='lbl' htmlFor="salary">Basic Salary</label>
-    <input className='inpuserS' type="text" name="salary" value={values.salary} onChange={onChange}  placeholder="EGP 1.500" required  onBlur={handleFocus} focused={focus.salary.toString()}/>
+    <input className='inpuserS' type="number" name="salary" value={values.salary} onChange={onChange}  placeholder="EGP 1.500" required  onBlur={handleFocus} focused={focus.salary.toString()}/>
     <span>Please enter number</span>
     </div>
    
     <div className="col-6">
     <label className='lbl' htmlFor="id">ID</label>
-    <input className='inpuserS' type="text" name="id" pattern= "^[1-9][0-9]$" value={values.id} onChange={onChange}  placeholder="01234567" required onBlur={handleFocus}  focused={focus.id.toString()}/>
+    <input className='inpuserS' type="text" name="id" pattern= "^[1-9][0-9]+$" value={values.id} onChange={onChange}  placeholder="01234567" required onBlur={handleFocus}  focused={focus.id.toString()}/>
     <span>Id must be a number that doesn't start with 0</span>
    </div>
    <div className="col-12 ">
@@ -274,8 +286,9 @@ return(        <div className="page5">
 </div>
 </div>
 </div>
+{err?<p className="invalidAdd">{errMsg}</p>:null}
 <div className="btns">
-<button className="btn1">Cancel</button>
+<Link to="/Userlist" style={{marginRight:"1em"}}><button className="btn1">Cancel</button></Link>
 <button type="submit" className="btn2">Add Employee</button>
 </div>
 </form>

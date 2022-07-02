@@ -10,6 +10,7 @@ import { AuthContext } from '../Context/auth';
 import { editConfig } from '../Utils/api2'
 import { CompanyConfig } from '../Utils/api2';
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 function EditConfig(){
   let history = useHistory();
   const { user } = useContext(AuthContext);
@@ -223,7 +224,7 @@ return(        <div className="page5">
 </div>
 </div>
 <div className="btns">
-<button className="btn1">Cancel</button>
+<Link to="/config" style={{marginRight:"1em"}}><button className="btn1">Cancel</button></Link>
 <button type="submit" className="btn2">Edit Configuration</button>
 </div>
 </form>

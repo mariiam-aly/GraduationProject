@@ -101,7 +101,7 @@ useEffect(() => {
   console.log(data);
 if(data==="Accountant"){
   
-  history.push('/page2');
+  history.push('/missions');
 }
    listData2(user.token).then(response => {
     const test=response.data.data;
@@ -139,7 +139,8 @@ return(
 
 {modalOpen && <PendingModal setOpenModal={setModalOpen} modalData={modalData}/>}
 
-{modalOpen && <MissionDetails setOpenModal={setModalOpen} id={missionId} name={missionName} type={types}/>}
+
+{modalOpen2 && <MissionDetails setOpenModal={setModalOpen2} id={missionId} name={missionName} type="Mission"/>}
 
 <div className="container overflow-hidden">
   <div style={{margin:"4em 0"}} className="row gy-4">
@@ -303,7 +304,7 @@ null
 {missn2 && missn2.map(data =>
     <div>
    
-    <MainMission key={data.id} describe={data.requestable.description} price={data.requestable.initial_cost}  id={data.requestable_id} image={data.image} fName={data.name} date={data.start_date} status={data.request_status}  setOpenModal2={setModalOpen2} setMissionId={setMissionId} setMissionName={setMissionName} setType={setType}/>
+    <MainMission key={data.id} describe={data.requestable.description} price={data.requestable.initial_cost}  id={data.requestable_id} image={data.image} fName={data.name} date={data.start_date} status={data.request_status}  setOpenModal={setModalOpen2} setMissionId={setMissionId} setMissionName={setMissionName} setType={setType}/>
 </div>
 
     )}

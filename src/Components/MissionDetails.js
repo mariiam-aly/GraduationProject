@@ -83,7 +83,7 @@ function handleAdd(){
       <div className="modalBackground2">
      
       {console.log(missnDetail)}
-        <div style={props.name.status!=="in-progress"?{paddingRight:"0",height:"260px"}:{paddingRight:"0"}}  className="modalContainer2" >
+        <div style={props.name.status!=="in-progress"?{paddingRight:"0",height:"260px"}:null}  className="modalContainer2" >
           <div className="titleCloseBtn">
             <button className="cls2"
             onClick={() => {

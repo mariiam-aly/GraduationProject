@@ -8,6 +8,8 @@ import { AiFillHome } from "react-icons/ai";
 import { BsShieldFillCheck,BsFillCloudSunFill } from "react-icons/bs";
 import { SiGooglesheets } from "react-icons/si";
 import { FaMoneyCheckAlt } from "react-icons/fa";
+import { MdOutlineMoneyOffCsred
+} from "react-icons/md";
 import { AuthContext } from '../Context/auth';
 import { useHistory } from "react-router-dom";
 function Nav(){
@@ -23,11 +25,19 @@ const [role,setRole]=useState("");
   useEffect(() => {
   const data=localStorage.getItem("role");
   console.log(data);
+if(data){
+if(data=="Normal"){
+  history.push("/");
+}
+
+}
+
   setRole(JSON.parse(data));
   const valid=localStorage.getItem("valid");
+  if(valid){
   if(JSON.parse(valid).data.valid===false){
     history.push("/");
-  }
+  }}
     }, [])
 
     return( <div className="sidebar">
@@ -103,7 +113,10 @@ const [role,setRole]=useState("");
           <FaMoneyCheckAlt className="navIcon"/>
           Salary settings
            </li></NavLink> 
-      
+           <NavLink to="/deductions" activeClassName="sidebarListItemActive"> <li className="sidebarListItem ">
+           <MdOutlineMoneyOffCsred className="navIcon"/>
+          Deductions
+            </li></NavLink> 
         
       </ul>
     

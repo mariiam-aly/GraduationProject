@@ -95,7 +95,50 @@ line-height: 130%;
 
 
     }
+.passBody{
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.passBody p{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24.5439px;
+    line-height: 36px;
+    color: #353535;
+}
 
+.passBody button{
+
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24.5439px;
+    line-height: 30px;
+    color: white;
+    background-color:#0B185F ;
+    border: none;
+ border-radius: 2px; 
+padding: 0.2em 2em;
+}
+.invalidAdd{
+
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16.5439px; 
+    color: rgb(174, 19, 19);
+    text-decoration: underline;
+}
+
+.passBody button:hover{
+
+    background-color:#162786 ;
+}
     .weekendDays{
         margin: 1.5em 0;
     }

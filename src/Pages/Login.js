@@ -73,10 +73,10 @@ const formik= useFormik({
     localStorage.setItem("role",JSON.stringify(response.data.user.roles));
     context.login(response.data);
     if(response.data.user.roles==="Accountant"){
-    history.push('/page2');}
+    history.push('/missions');}
     else{
 
-      history.push('/Userlist');
+      history.push('/dashboard');
     }
   })
   .catch(function (error) {

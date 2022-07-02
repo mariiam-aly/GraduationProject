@@ -8,6 +8,7 @@ import { BsSun,BsMoonStars } from "react-icons/bs";
 import { EditoContext } from "../Context/EditoContext";
 import { AuthContext } from '../Context/auth';
 import { editUser } from '../Utils/api2'
+import { Link } from "react-router-dom";
 import { useHistory,useParams } from "react-router-dom";
 import { departments,JobTitles,singleUser,listData2,shifts,uploadImageUser } from '../Utils/api2';
 function EditUser(){ 
@@ -24,6 +25,8 @@ const [shift,setShift]=useState();
 const [role,setRole]=useState();
 const [editData,seteditData]= useState();
 const [ediImage, setEditImage] = useState();
+const [err,setErr]=useState();
+const [errMsg,setErrMsg]=useState();
 const roles=["Admin","HR","Accountant","Normal"];
 const yes=true;
 const no=false
@@ -134,7 +137,11 @@ const no=false
 
         history.push('/Userlist');
     
-     })
+     }).catch(function (error) {
+      console.log(error.response.data);
+      setErrMsg(error.response.data.error.phone)
+      setErr(true);
+    }); 
 
   
    
@@ -151,6 +158,11 @@ const no=false
   };
 
   const onChange2 = (e) => {
+    setValues({ ...values, [e.target.name]: parseInt(e.target.value)});
+    seteditData({ ...editData, [e.target.name]:  parseInt(e.target.value)});
+    console.log(editData);
+  };
+  const onChange3 = (e) => {
     setValues({ ...values, [e.target.name]: JSON.parse(e.target.value)});
     seteditData({ ...editData, [e.target.name]:  JSON.parse(e.target.value)});
     console.log(editData);
@@ -292,12 +304,12 @@ return(        <div className="page5">
    
     <div className="col-6 ">
     <div className="rad ">
-    <input  type="radio" id="can_wfh1" name="can_wfh" value={yes}  onChange={onChange2} defaultChecked={values.can_wfh}/>
+    <input  type="radio" id="can_wfh1" name="can_wfh" value={yes}  onChange={onChange3} defaultChecked={values.can_wfh}/>
     <label className='lblR' htmlFor="can_wfh1">Yes</label></div>
     </div>
     <div className="col-6 ">
     <div className="rad ">
-    <input  type="radio" id="can_wfh2" name="can_wfh" value={no} onChange={onChange2} defaultChecked={!values.can_wfh}/>
+    <input  type="radio" id="can_wfh2" name="can_wfh" value={no} onChange={onChange3} defaultChecked={!values.can_wfh}/>
     <label className='lblR' htmlFor="can_wfh2">No</label></div>
     </div>
    </div>
@@ -316,8 +328,9 @@ return(        <div className="page5">
 </div>
 </div>
 </div>
+{err?<p style={{marginTop:"1.5em"}} className="invalidAdd">{errMsg}</p>:null}
 <div className="btns">
-<button className="btn1">Cancel</button>
+<Link to="/Userlist" style={{marginRight:"1em"}}><button className="btn1">Cancel</button></Link>
 <button type="submit" className="btn2">Edit Employee</button>
 </div>
 </form>}

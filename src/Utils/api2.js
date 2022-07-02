@@ -357,6 +357,16 @@ export const editConfig = (body,token) => {
     });
 }
 
+export const test = (id,token) => {
+
+
+    return AxiosProvider2.put(`/admin/calc/${id}`, {},{
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    });
+}
+
 export const pay = (id,token) => {
 
 

@@ -56,7 +56,7 @@ function Page2() {
             setMissn3([]);  
             setMissn3Msg(true);
           });  
-         
+          
           mission2({status: 'canceled',class: 'mission'},user.token).then(response => {
             const test=response.data.data.data;
          

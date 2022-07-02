@@ -1,7 +1,7 @@
 import"../styles/Deduction.css"
 import React, {useState,useEffect,useContext} from "react";
 import { AuthContext } from '../Context/auth';
-import { getEarn, getDeduct,singleUser,salary } from '../Utils/api2';
+import { getEarn, getDeduct,singleUser,salary,test } from '../Utils/api2';
 import logo from "../assets/Titlelogo.svg"
 import { AiOutlineDown, AiOutlineDelete } from "react-icons/ai";
 import DeduuctionModal from "../Components/DeduuctionModal";
@@ -21,6 +21,7 @@ function SingleUserTransaction(){
   const [loading,setLoading]=useState(true);
   const [totDeduct,setTotDeduct]= useState();
   const [totEarn,setTotEarn]= useState();
+  const [slipTest,setSlip]= useState([]);
 useEffect(() => {
  
 
@@ -32,6 +33,12 @@ useEffect(() => {
     setLoading(false);
    });
  
+   test(usrId,user.token).then(response => {
+  
+    setSlip(response.data.data);
+
+  console.log(response)
+   });
 
 getDeduct(id,user.token).then(response => {
 
@@ -136,20 +143,21 @@ InDeducations
 </div>
 <div style={{marginTop:"2em"}}>
 
-{ earn && Object.keys(earn).map((data,index) =>
+{ slipTest.earnings && slipTest.earnings.map((data,index) =>
   <div key={index} className="breakdown">
 
-  <p style={{width:"10vw"}}>{earn[data].title}</p>
+  <p style={{width:"10vw"}}>{data.title}</p>
   <hr style={{display:"inline-block",width:"12vw",height:"0.5px"}}/>
-  <p style={{width:"1vw"}}>{earn[data].amount}</p>
+  <p style={{width:"1vw"}}>{data.amount}</p>
   
   </div> 
 )}
 <div className="breakdown breakdownTotal">
-
+{console.log(slipTest)}
   <p style={{width:"10vw"}}>Total</p>
   <hr style={{display:"inline-block",width:"12vw",height:"0.5px"}}/>
-  <p style={{width:"1vw"}}>{totEarn}</p>
+
+  <p style={{width:"1vw"}}>{slipTest.total_earnings}</p>
   
   </div> 
 
@@ -167,18 +175,18 @@ Deducations
 </div>
 <div >
 <div style={{marginTop:"2em"}}>
-{deduct && Object.keys(deduct).map((data,index) =>
+{slipTest.adjustment && slipTest.adjustment.map((data,index) =>
   <div key={index} className="breakdown">
-  <p style={{width:"10vw"}}>{deduct[data].title}</p>
+  <p style={{width:"10vw"}}>{data.title}</p>
   <hr style={{display:"inline-block",width:"12vw",height:"0.5px"}}/>
-  <p style={{width:"1vw"}}>{deduct[data].amount}</p>
+  <p style={{width:"1vw"}}>{data.value}</p>
   </div> 
 )}
 <div className="breakdown breakdownTotalR">
 
   <p style={{width:"10vw"}}>Total</p>
   <hr style={{display:"inline-block",width:"12vw",height:"0.5px"}}/>
-  <p style={{width:"1vw"}}>{totDeduct}</p>
+  <p style={{width:"1vw"}}>{slipTest.total_adjustment}</p>
   
   </div> 
 
